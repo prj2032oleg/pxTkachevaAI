@@ -110,18 +110,20 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="prose prose-lg max-w-none">
                     <div x-show="lang === 'de'" class="space-y-4">
-                        <p>Was fängt mit einem schönen Lächeln an? Eine erfolgreiche Arbeitsbeziehung, eine gemeinsame Zukunft oder langjährige Freundschaft? In allen Lebenssituationen ist Ihr strahlendes Lächeln wie ein Schlüssel zu allen Türen. Für uns ist es ganz wichtig, unsere Patienten in jedem Schritt des Lebens professionell zu unterstützen. Deswegen verbessern wir unsere Fähigkeiten ständig durch verschiedene Fortbildungen. Wir motivieren, fördern und fordern unser Team in allen Bereichen. So halten wir Kontakt zu führenden deutschen Wissenschaftlern an den Universitäten Freiburg, Ulm, München und Berlin – damit sind wir der Grundlagenforschung sehr nahe und immer auf dem aktuellen Stand.</p>
+                        <p class="font-semibold">Was fängt mit einem schönen Lächeln an?</p> 
+                        <p>Eine erfolgreiche Arbeitsbeziehung, eine gemeinsame Zukunft oder langjährige Freundschaft? In allen Lebenssituationen ist Ihr strahlendes Lächeln wie ein Schlüssel zu allen Türen. Für uns ist es ganz wichtig, unsere Patienten in jedem Schritt des Lebens professionell zu unterstützen. Deswegen verbessern wir unsere Fähigkeiten ständig durch verschiedene Fortbildungen. Wir motivieren, fördern und fordern unser Team in allen Bereichen. So halten wir Kontakt zu führenden deutschen Wissenschaftlern an den Universitäten Freiburg, Ulm, München und Berlin – damit sind wir der Grundlagenforschung sehr nahe und immer auf dem aktuellen Stand.</p>
                         <p>Wir würden uns sehr freuen, in jeder Lebenssituation mithilfe eines schönen Lächelns Ihren Erfolg zu begleiten.</p>
                         <p class="font-semibold">Ihre<br>Zahnarztpraxis Tkacheva</p>
                     </div>
                     <div x-show="lang === 'ru'" class="space-y-4">
-                        <p>Что начинается с красивой улыбки? Успешная карьера, прекрасное совместное будущее или многолетняя дружба? В любой жизненной ситуации сияющая улыбка-ключик, открывающий любую дверь. Нам очень важно поддержать успех наших пациентов на любом этапе их жизненного пути. Для этого мы стараемся быть лучше каждый день, совершенствовать свой профессионализм на многочисленных курсах. Мы мотивируем, поддерживаем и стремимся к лучшему во всех сферах всей командой, чтобы превзойти Ваши ожидания. У нас есть возможность при необходимости получить консультацию ведущих профессоров Университета Фрайбурга, Ульма, Мюнхена и Берлина. Это даёт нам возможность всегда быть в курсе новейших событий и исследований в мире стоматологии и применять их в повседневной практике.</p>
+                        <p class="font-semibold">Что начинается с красивой улыбки?</p> 
+                        <p>Успешная карьера, прекрасное совместное будущее или многолетняя дружба? В любой жизненной ситуации сияющая улыбка-ключик, открывающий любую дверь. Нам очень важно поддержать успех наших пациентов на любом этапе их жизненного пути. Для этого мы стараемся быть лучше каждый день, совершенствовать свой профессионализм на многочисленных курсах. Мы мотивируем, поддерживаем и стремимся к лучшему во всех сферах всей командой, чтобы превзойти Ваши ожидания. У нас есть возможность при необходимости получить консультацию ведущих профессоров Университета Фрайбурга, Ульма, Мюнхена и Берлина. Это даёт нам возможность всегда быть в курсе новейших событий и исследований в мире стоматологии и применять их в повседневной практике.</p>
                         <p>Нам очень приятно быть причастными к созданию Вашей визитной карточки-сияющей, белоснежной улыбки, и разделить с Вами Ваш успех.</p>
                         <p class="font-semibold">К Вашим услугам,<br>стоматологическая клиника Татьяны Ткачевой</p>
                     </div>
                 </div>
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dental Practice" class="rounded-lg shadow-xl">
+                    <img src="praxis/aboutus.jpg" alt="Dental Practice" class="rounded-lg shadow-xl">
                 </div>
             </div>
         </div>
@@ -137,7 +139,7 @@
                     <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dental Practice" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tkacheva Denzlingen</h3>
-                        <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Hauptstr. 92, 79211 Denzlingen' : 'Хауптштрассе 92, 79211 Денцлинген'"></p>
+                        <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Hauptstr. 92, 79211 Denzlingen' : 'Hauptstr. 92, 79211 Denzlingen'"></p>
                         <a href="https://www.google.com/maps/search/?api=1&query=Hauptstr.+92,+79211+Denzlingen" target="_blank" class="text-blue-600 hover:text-blue-800 mb-2 inline-flex items-center block">
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
@@ -148,10 +150,11 @@
                         <div x-show="showDetails" class="mt-4">
                             <p class="text-gray-700" x-text="lang === 'de' ? 'Mo. - Do.: 08:00 - 18:00 Uhr' : 'Пн. - Чт.: 08:00 - 18:00'"></p>
                             <p class="text-gray-700" x-text="lang === 'de' ? 'Fr.: 08:00 - 12:00 Uhr' : 'Пт.: 08:00 - 12:00'"></p>
-                            <a href="tel:+497666912020" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">+49 7666 912020</a>
+                            <a href="tel:+497666912020" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">Tel.: +49 7666 912020</a>
                             <p class="text-gray-700 mt-2">Fax: +49 7666 912030</p>
-                            <a href="mailto:info@px-tkacheva.de" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">info@px-tkacheva.de</a>
+                            <a href="mailto:info@px-tkacheva.de" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">E-Mail: info@px-tkacheva.de</a>
                         </div>
+                        <a href="https://www.doctolib.de/zahnarztpraxis/denzlingen/zahnarztpraxis-tkacheva-denzlingen?utm_campaign=website-button&utm_source=zahnarztpraxis-tkacheva-denzlingen-website-button&utm_medium=referral&utm_content=option-8&utm_term=zahnarztpraxis-tkacheva-denzlingen" class="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 transition" x-text="lang === 'de' ? 'Online Termin buchen' : 'Записаться онлайн'"></a>
                     </div>
                 </div>
 
@@ -159,8 +162,8 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showDetails: false }">
                     <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dental Practice" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tkacheva Hinterzarten</h3>
-                        <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Freiburger Straße 3, 79856 Hinterzarten' : 'Фрайбургер Штрассе 3, 79856 Хинтерцартен'"></p>
+                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tatiana Tkacheva</h3>
+                        <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Freiburger Straße 3, 79856 Hinterzarten' : 'Freiburger Straße 3, 79856 Hinterzarten'"></p>
                         <a href="https://www.google.com/maps/search/?api=1&query=Freiburger+Straße+3,+79856+Hinterzarten" target="_blank" class="text-blue-600 hover:text-blue-800 mb-2 inline-flex items-center block">
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
@@ -171,10 +174,11 @@
                         <div x-show="showDetails" class="mt-4">
                             <p class="text-gray-700" x-text="lang === 'de' ? 'Mo, Di, Do: 08:00-12:00; 14:00-18:00' : 'Пн, Вт, Чт: 08:00-12:00; 14:00-18:00'"></p>
                             <p class="text-gray-700" x-text="lang === 'de' ? 'Mi, Fr: 08:00-12:00' : 'Ср, Пт: 08:00-12:00'"></p>
-                            <a href="tel:+4976521331" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">+49 7652 1331</a>
+                            <a href="tel:+4976521331" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">Tel.: +49 7652 1331</a>
                             <p class="text-gray-700 mt-2">Fax: +49 7652 1331</p>
-                            <a href="mailto:za.hinterzarten@gmx.de" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">za.hinterzarten@gmx.de</a>
+                            <a href="mailto:za.hinterzarten@gmx.de" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">E-Mail: za.hinterzarten@gmx.de</a>
                         </div>
+                        <a href="https://www.doctolib.de/zahnarztpraxis/hinterzarten/zahnarztpraxis-tkacheva-hinterzarten?utm_campaign=website-button&utm_source=zahnarztpraxis-tkacheva-hinterzarten-website-button&utm_medium=referral&utm_content=option-8&utm_term=zahnarztpraxis-tkacheva-hinterzarten" class="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 transition" x-text="lang === 'de' ? 'Online Termin buchen' : 'Записаться онлайн'"></a>
                     </div>
                 </div>
 
@@ -182,9 +186,9 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showDetails: false }">
                     <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dental Practice" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tkacheva Freiburg-Herdern</h3>
-                        <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Freiburger Straße 3, 79856 Hinterzarten' : 'Фрайбургер Штрассе 3, 79856 Хинтерцартен'"></p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Freiburger+Straße+3,+79856+Hinterzarten" target="_blank" class="text-blue-600 hover:text-blue-800 mb-2 inline-flex items-center block">
+                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tkacheva-Freiburg</h3>
+                        <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Hauptstraße 13A, 79104 Freiburg im Breisgau' : 'Hauptstraße 13A, 79104 Freiburg im Breisgau'"></p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hauptstraße+Straße+13A,+79104+Freiburg+im+Breisgau" target="_blank" class="text-blue-600 hover:text-blue-800 mb-2 inline-flex items-center block">
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
                         </a>
@@ -194,10 +198,11 @@
                         <div x-show="showDetails" class="mt-4">
                             <p class="text-gray-700" x-text="lang === 'de' ? 'Mo, Di, Do: 08:00-12:00; 14:00-18:00' : 'Пн, Вт, Чт: 08:00-12:00; 14:00-18:00'"></p>
                             <p class="text-gray-700" x-text="lang === 'de' ? 'Mi, Fr: 08:00-12:00' : 'Ср, Пт: 08:00-12:00'"></p>
-                            <a href="tel:+4976136331" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">+49 761 36331</a>
+                            <a href="tel:+4976136331" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">Tel.: +49 761 36331</a>
                             <p class="text-gray-700 mt-2">Fax: +49 761 57896</p>
-                            <a href="mailto:fr@px-tkacheva.de" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">fr@px-tkacheva.de</a>
+                            <a href="mailto:fr@px-tkacheva.de" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">E-Mail: fr@px-tkacheva.de</a>
                         </div>
+                        <a href="https://www.doctolib.de/zahnarztpraxis/freiburg-im-breisgau/zahnarztpraxis-tkacheva-freiburg?utm_campaign=website-button&utm_source=zahnarztpraxis-tkacheva-freiburg-website-button&utm_medium=referral&utm_content=option-8&utm_term=zahnarztpraxis-tkacheva-freiburg" class="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-blue-700 transition" x-text="lang === 'de' ? 'Online Termin buchen' : 'Записаться онлайн'"></a>
                     </div>
                 </div>
             </div>
@@ -250,14 +255,14 @@
                 </div>
                 <div class="text-center">
                     <i class="fas fa-tooth text-4xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Notfallversorgung' : 'Неотложная помощь'"></h3>
-                    <p class="text-gray-600" x-text="lang === 'de' ? '24/7 Notfall-Zahnbehandlung' : 'Круглосуточная неотложная стоматологическая помощь'"></p>
+                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Diagnostik & CMD Diagnostik' : 'Диагностика и диагностика заболеваний височно-нижнечелюстного сустава'"></h3>
+                    <p class="text-gray-600" x-text="lang === 'de' ? 'Der Grundstein des Erfolges einer jeden Behandlung ist die Diagnose' : 'Залогом успеха в лечении любого заболевания является правильная диагностика'"></p>
                 </div>
                 <div class="text-center">
-                    <i class="fas fa-child text-4xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Kinderzahnheilkunde' : 'Детская стоматология'"></h3>
-                    <p class="text-gray-600" x-text="lang === 'de' ? 'Spezialisierte Behandlung für Kinder' : 'Специализированное лечение для детей'"></p>
-                </div>
+                    <i class="fas fa-tooth text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Prophylaxe' : 'Профилактические процедуры'"></h3>
+                    <p class="text-gray-600" x-text="lang === 'de' ? 'Prophylaxe' : 'Профилактические процедуры'"></p>
+                </div>                
             </div>
         </div>
     </section>
@@ -291,9 +296,8 @@
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Kontakt' : 'Контакты'"></h3>
+                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Zahnarztpraxis Denzlingen' : 'Zahnarztpraxis Denzlingen'"></h3>
                     <div class="space-y-2">
-                        <p class="font-semibold">Zahnarztpraxis Tkacheva Denzlingen</p>
                         <p>Hauptstr. 92, 79211 Denzlingen</p>
                         <a href="https://www.google.com/maps/search/?api=1&query=Hauptstr.+92,+79211+Denzlingen" target="_blank" class="text-blue-400 hover:text-blue-300 inline-flex items-center">
                             <i class="fas fa-map-marker-alt mr-2"></i>
@@ -305,9 +309,8 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Kontakt' : 'Контакты'"></h3>
+                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Zahnarztpraxis Hinterzarten' : 'Zahnarztpraxis Hinterzarten'"></h3>
                     <div class="space-y-2">
-                        <p class="font-semibold">Zahnarztpraxis Tkacheva Hinterzarten</p>
                         <p>Freiburger Straße 3, 79856 Hinterzarten</p>
                         <a href="https://www.google.com/maps/search/?api=1&query=Freiburger+Straße+3,+79856+Hinterzarten" target="_blank" class="text-blue-400 hover:text-blue-300 inline-flex items-center">
                             <i class="fas fa-map-marker-alt mr-2"></i>
@@ -319,9 +322,9 @@
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Kontakt' : 'Контакты'"></h3>
+                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Zahnarztpraxis Freiburg-Herdern' : 'Zahnarztpraxis Freiburg-Herdern'"></h3>
                     <div class="space-y-2">
-                        <p class="font-semibold">Zahnarztpraxis Tkacheva Freiburg-Herdern</p>
+                        <p class="font-semibold"></p>
                         <p>Freiburger Straße 3, 79856 Hinterzarten</p>
                         <a href="https://www.google.com/maps/search/?api=1&query=Freiburger+Straße+3,+79856+Hinterzarten" target="_blank" class="text-blue-400 hover:text-blue-300 inline-flex items-center">
                             <i class="fas fa-map-marker-alt mr-2"></i>
