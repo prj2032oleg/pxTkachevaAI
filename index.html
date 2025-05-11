@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de" x-data="{ lang: 'de', accessibilityMode: false }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="lang === 'de' ? 'Zahnärzte Tkacheva - Ihre Zahnärzte in Deutschland' : 'Стоматологи Ткачева - Ваши стоматологи в Германии'"></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <meta property="og:image" content="/assets/images/logo.png">
+    <style>
+        /* Accessibility styles */
+        .accessibility-mode {
+            font-size: 18px !important;
+            line-height: 1.6 !important;
+            letter-spacing: 0.12em !important;
+            word-spacing: 0.16em !important;
+        }
+        .accessibility-mode * {
+            font-family: Arial, sans-serif !important;
+        }
+        .accessibility-mode a, 
+        .accessibility-mode button {
+            text-decoration: underline !important;
+            padding: 8px !important;
+        }
+        .accessibility-mode img {
+            border: 2px solid #000 !important;
+        }
+        .accessibility-mode .text-gray-600,
+        .accessibility-mode .text-gray-700 {
+            color: #000 !important;
+        }
+        .accessibility-mode .bg-gray-100 {
+            background-color: #fff !important;
+        }
+        .accessibility-mode .bg-gray-800,
+        .accessibility-mode .bg-gray-900 {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+        .accessibility-mode .text-blue-600 {
+            color: #0000EE !important;
+        }
+        .accessibility-mode .hover\:text-blue-800:hover {
+            color: #0000EE !important;
+            text-decoration: underline !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50" :class="{ 'accessibility-mode': accessibilityMode }">
+    <!-- Accessibility Toggle -->
+    <div class="fixed top-4 left-4 z-50">
+        <button @click="accessibilityMode = !accessibilityMode" 
+                class="bg-yellow-500 text-black px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-yellow-600 transition-colors"
+                :aria-pressed="accessibilityMode">
+            <i class="fas fa-universal-access"></i>
+            <span x-text="accessibilityMode ? (lang === 'de' ? 'Standardansicht' : 'Обычный вид') : (lang === 'de' ? 'Barrierefreie Ansicht' : 'Версия для слабовидящих')"></span>
+        </button>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="fixed top-4 right-4 z-50">
+        <button @click="lang = 'de'" 
+                :class="{ 'bg-blue-600 text-white': lang === 'de', 'bg-gray-200': lang !== 'de' }" 
+                class="px-4 py-2 rounded-l-lg"
+                :aria-pressed="lang === 'de'">DE</button>
+        <button @click="lang = 'ru'" 
+                :class="{ 'bg-blue-600 text-white': lang === 'ru', 'bg-gray-200': lang !== 'ru' }" 
+                class="px-4 py-2 rounded-r-lg"
+                :aria-pressed="lang === 'ru'">RU</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-12">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center h-12">
+                        <img src="assets/images/logo.png" alt="Zahnarztpraxis Tkacheva Logo" class="h-9 max-h-full w-auto block">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Über uns' : 'О нас'"></a>
+                    <a href="#clinics" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unsere Kliniken' : 'Наши клиники'"></a>
+                    <a href="#team" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unser Team' : 'Наша команда'"></a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unsere Leistungen' : 'Наши услуги'"></a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Kontakt' : 'Контакты'"></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-12 bg-gradient-to-r from-blue-500 to-blue-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6" x-text="lang === 'de' ? 'Ihr Lächeln ist unsere Priorität' : 'Ваша улыбка - наш приоритет'"></h1>
+                <p class="text-xl text-white mb-8" x-text="lang === 'de' ? 'Professionelle Zahnbehandlung' : 'Профессиональное стоматологическое обслуживание'"></p>
+                <a href="#clinics" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition duration-300" x-text="lang === 'de' ? 'Klinik finden' : 'Найти клинику'"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'de' ? 'Über uns' : 'О нас'"></h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="prose prose-lg max-w-none">
+                    <div x-show="lang === 'de'" class="space-y-4">
+                        <p>Was fängt mit einem schönen Lächeln an? Eine erfolgreiche Arbeitsbeziehung, eine gemeinsame Zukunft oder langjährige Freundschaft? In allen Lebenssituationen ist Ihr strahlendes Lächeln wie ein Schlüssel zu allen Türen. Für uns ist es ganz wichtig, unsere Patienten in jedem Schritt des Lebens professionell zu unterstützen. Deswegen verbessern wir unsere Fähigkeiten ständig durch verschiedene Fortbildungen. Wir motivieren, fördern und fordern unser Team in allen Bereichen. So halten wir Kontakt zu führenden deutschen Wissenschaftlern an den Universitäten Freiburg, Ulm, München und Berlin – damit sind wir der Grundlagenforschung sehr nahe und immer auf dem aktuellen Stand.</p>
+                        <p>Wir würden uns sehr freuen, in jeder Lebenssituation mithilfe eines schönen Lächelns Ihren Erfolg zu begleiten.</p>
+                        <p class="font-semibold">Ihre<br>Zahnarztpraxis Tkacheva</p>
+                    </div>
+                    <div x-show="lang === 'ru'" class="space-y-4">
+                        <p>Что начинается с красивой улыбки? Успешная карьера, прекрасное совместное будущее или многолетняя дружба? В любой жизненной ситуации сияющая улыбка-ключик, открывающий любую дверь. Нам очень важно поддержать успех наших пациентов на любом этапе их жизненного пути. Для этого мы стараемся быть лучше каждый день, совершенствовать свой профессионализм на многочисленных курсах. Мы мотивируем, поддерживаем и стремимся к лучшему во всех сферах всей командой, чтобы превзойти Ваши ожидания. У нас есть возможность при необходимости получить консультацию ведущих профессоров Университета Фрайбурга, Ульма, Мюнхена и Берлина. Это даёт нам возможность всегда быть в курсе новейших событий и исследований в мире стоматологии и применять их в повседневной практике.</p>
+                        <p>Нам очень приятно быть причастными к созданию Вашей визитной карточки-сияющей, белоснежной улыбки, и разделить с Вами Ваш успех.</p>
+                        <p class="font-semibold">К Вашим услугам,<br>стоматологическая клиника Татьяны Ткачевой</p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dental Practice" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinics Section -->
+    <section id="clinics" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'de' ? 'Unsere Kliniken' : 'Наши клиники'"></h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Clinic 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showDetails: false }">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dental Practice" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tkacheva Denzlingen</h3>
+                        <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Hauptstr. 92, 79211 Denzlingen' : 'Хауптштрассе 92, 79211 Денцлинген'"></p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hauptstr.+92,+79211+Denzlingen" target="_blank" class="text-blue-600 hover:text-blue-800 mb-2 inline-flex items-center block">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
+                        </a>
+                        <button @click="showDetails = !showDetails" class="text-blue-600 hover:text-blue-800 block">
+                            <span x-text="showDetails ? (lang === 'de' ? 'Details ausblenden' : 'Скрыть детали') : (lang === 'de' ? 'Details anzeigen' : 'Показать детали')"></span>
+                        </button>
+                        <div x-show="showDetails" class="mt-4">
+                            <p class="text-gray-700" x-text="lang === 'de' ? 'Mo. - Do.: 08:00 - 18:00 Uhr' : 'Пн. - Чт.: 08:00 - 18:00'"></p>
+                            <p class="text-gray-700" x-text="lang === 'de' ? 'Fr.: 08:00 - 12:00 Uhr' : 'Пт.: 08:00 - 12:00'"></p>
+                            <a href="tel:+497666912020" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">+49 7666 912020</a>
+                            <p class="text-gray-700 mt-2">Fax: +49 7666 912030</p>
+                            <a href="mailto:info@px-tkacheva.de" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">info@px-tkacheva.de</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clinic 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showDetails: false }">
+                    <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dental Practice" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tkacheva Hinterzarten</h3>
+                        <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Freiburger Straße 3, 79856 Hinterzarten' : 'Фрайбургер Штрассе 3, 79856 Хинтерцартен'"></p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Freiburger+Straße+3,+79856+Hinterzarten" target="_blank" class="text-blue-600 hover:text-blue-800 mb-2 inline-flex items-center block">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
+                        </a>
+                        <button @click="showDetails = !showDetails" class="text-blue-600 hover:text-blue-800 block">
+                            <span x-text="showDetails ? (lang === 'de' ? 'Details ausblenden' : 'Скрыть детали') : (lang === 'de' ? 'Details anzeigen' : 'Показать детали')"></span>
+                        </button>
+                        <div x-show="showDetails" class="mt-4">
+                            <p class="text-gray-700" x-text="lang === 'de' ? 'Mo, Di, Do: 08:00-12:00; 14:00-18:00' : 'Пн, Вт, Чт: 08:00-12:00; 14:00-18:00'"></p>
+                            <p class="text-gray-700" x-text="lang === 'de' ? 'Mi, Fr: 08:00-12:00' : 'Ср, Пт: 08:00-12:00'"></p>
+                            <a href="tel:+4976521331" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">+49 7652 1331</a>
+                            <p class="text-gray-700 mt-2">Fax: +49 7652 1331</p>
+                            <a href="mailto:za.hinterzarten@gmx.de" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">za.hinterzarten@gmx.de</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clinic 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showDetails: false }">
+                    <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dental Practice" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tkacheva Freiburg-Herdern</h3>
+                        <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Freiburger Straße 3, 79856 Hinterzarten' : 'Фрайбургер Штрассе 3, 79856 Хинтерцартен'"></p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Freiburger+Straße+3,+79856+Hinterzarten" target="_blank" class="text-blue-600 hover:text-blue-800 mb-2 inline-flex items-center block">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
+                        </a>
+                        <button @click="showDetails = !showDetails" class="text-blue-600 hover:text-blue-800 block">
+                            <span x-text="showDetails ? (lang === 'de' ? 'Details ausblenden' : 'Скрыть детали') : (lang === 'de' ? 'Details anzeigen' : 'Показать детали')"></span>
+                        </button>
+                        <div x-show="showDetails" class="mt-4">
+                            <p class="text-gray-700" x-text="lang === 'de' ? 'Mo, Di, Do: 08:00-12:00; 14:00-18:00' : 'Пн, Вт, Чт: 08:00-12:00; 14:00-18:00'"></p>
+                            <p class="text-gray-700" x-text="lang === 'de' ? 'Mi, Fr: 08:00-12:00' : 'Ср, Пт: 08:00-12:00'"></p>
+                            <a href="tel:+4976136331" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">+49 761 36331</a>
+                            <p class="text-gray-700 mt-2">Fax: +49 761 57896</p>
+                            <a href="mailto:fr@px-tkacheva.de" class="text-blue-600 hover:text-blue-800 mt-2 inline-block">fr@px-tkacheva.de</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" x-data="teamSection">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'de' ? 'Unser Team' : 'Наша команда'"></h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <template x-for="(member, idx) in team" :key="idx">
+                    <div class="text-center cursor-pointer" @click="openProfile(member)">
+                        <img :src="member.photo" :alt="member.fullName" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-2 border-blue-200">
+                        <h3 class="text-lg font-semibold" x-text="member.fullName"></h3>
+                        <p class="text-gray-600" x-text="member.position"></p>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <!-- Модальное окно профиля -->
+        <div x-show="showProfile" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50" x-cloak>
+            <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
+                <button @click="showProfile = false" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+                <img :src="selectedMember.photo" :alt="selectedMember.fullName" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-2 border-blue-200">
+                <h3 class="text-2xl font-bold text-center mb-2" x-text="selectedMember.fullName"></h3>
+                <p class="text-center text-gray-700 mb-2" x-text="selectedMember.position"></p>
+                <p class="text-center text-gray-700 mb-4" x-text="selectedMember.clinic"></p>
+                <template x-if="selectedMember.cv">
+                    <a :href="selectedMember.cv" download class="block text-center text-blue-600 hover:underline mt-2" x-text="lang === 'de' ? 'Lebenslauf herunterladen' : 'Скачать резюме'"></a>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'de' ? 'Unsere Leistungen' : 'Наши услуги'"></h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <i class="fas fa-tooth text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Allgemeine Zahnheilkunde' : 'Общая стоматология'"></h3>
+                    <p class="text-gray-600" x-text="lang === 'de' ? 'Umfassende zahnärztliche Versorgung für alle Altersgruppen' : 'Комплексное стоматологическое обслуживание для всех возрастов'"></p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-smile text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Ästhetische Zahnheilkunde' : 'Эстетическая стоматология'"></h3>
+                    <p class="text-gray-600" x-text="lang === 'de' ? 'Verwandeln Sie Ihr Lächeln mit unseren kosmetischen Lösungen' : 'Преобразите свою улыбку с помощью наших косметических решений'"></p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-tooth text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Notfallversorgung' : 'Неотложная помощь'"></h3>
+                    <p class="text-gray-600" x-text="lang === 'de' ? '24/7 Notfall-Zahnbehandlung' : 'Круглосуточная неотложная стоматологическая помощь'"></p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-child text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Kinderzahnheilkunde' : 'Детская стоматология'"></h3>
+                    <p class="text-gray-600" x-text="lang === 'de' ? 'Spezialisierte Behandlung für Kinder' : 'Специализированное лечение для детей'"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'de' ? 'Kontakt' : 'Контакты'"></h2>
+            <div class="max-w-2xl mx-auto">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700" x-text="lang === 'de' ? 'Name' : 'Имя'"></label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700" x-text="lang === 'de' ? 'Nachricht' : 'Сообщение'"></label>
+                        <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300" x-text="lang === 'de' ? 'Nachricht senden' : 'Отправить сообщение'"></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Kontakt' : 'Контакты'"></h3>
+                    <div class="space-y-2">
+                        <p class="font-semibold">Zahnarztpraxis Tkacheva Denzlingen</p>
+                        <p>Hauptstr. 92, 79211 Denzlingen</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hauptstr.+92,+79211+Denzlingen" target="_blank" class="text-blue-400 hover:text-blue-300 inline-flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
+                        </a>
+                        <p>Tel: +49 7666 912020</p>
+                        <p>Fax: +49 7666 912030</p>
+                        <p>E-Mail: info@px-tkacheva.de</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Kontakt' : 'Контакты'"></h3>
+                    <div class="space-y-2">
+                        <p class="font-semibold">Zahnarztpraxis Tkacheva Hinterzarten</p>
+                        <p>Freiburger Straße 3, 79856 Hinterzarten</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Freiburger+Straße+3,+79856+Hinterzarten" target="_blank" class="text-blue-400 hover:text-blue-300 inline-flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
+                        </a>
+                        <p>Tel: +49 7652 1331</p>
+                        <p>Fax: +49 7652 1331</p>
+                        <p>E-Mail: za.hinterzarten@gmx.de</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Kontakt' : 'Контакты'"></h3>
+                    <div class="space-y-2">
+                        <p class="font-semibold">Zahnarztpraxis Tkacheva Freiburg-Herdern</p>
+                        <p>Freiburger Straße 3, 79856 Hinterzarten</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Freiburger+Straße+3,+79856+Hinterzarten" target="_blank" class="text-blue-400 hover:text-blue-300 inline-flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
+                        </a>
+                        <p>Tel: +49 761 36331</p>
+                        <p>Fax: +49 761 57896</p>
+                        <p>E-Mail: fr@px-tkacheva.de</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Öffnungszeiten' : 'Часы работы'"></h3>
+                    <div class="space-y-2">
+                        <p x-text="lang === 'de' ? 'Mo. - Do.: 08:00 - 18:00 Uhr' : 'Пн. - Чт.: 08:00 - 18:00'"></p>
+                        <p x-text="lang === 'de' ? 'Fr.: 08:00 - 12:00 Uhr' : 'Пт.: 08:00 - 12:00'"></p>
+                        <p x-text="lang === 'de' ? 'Sa. - So.: Geschlossen' : 'Сб. - Вс.: Закрыто'"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                <p>&copy; 2025 Zahnarztpraxis Tkacheva.</span></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Подключение teamSection.js -->
+    <script src="assets/js/teamSection.js"></script>
+</body>
+</html> 
