@@ -1,13 +1,26 @@
 document.addEventListener('alpine:init', () => {
   // Store für globalen Zugriff auf Cookie-Einstellungen
   Alpine.store('cookieConsent', {
+    showBanner: true,
+
     enableSpecificCookie(cookieType) {
-      const component = document.querySelector('[x-data="cookieConsent"]').__x.$data;
-      if (component) {
-        component.enableSpecificCookie(cookieType);
+      const component = document.querySelector('[x-data="cookieConsent"]');
+      if (component && component.__x) {
+        component.__x.$data.enableSpecificCookie(cookieType);
       }
+    },
+
+    toggleBanner(show) {
+      this.showBanner = show;
+      const components = document.querySelectorAll('[x-data="cookieConsent"]');
+      components.forEach(component => {
+        if (component && component.__x) {
+          component.__x.$data.showBanner = show;
+        }
+      });
     }
   });
+
 
   Alpine.data('cookieConsent', () => ({
     showBanner: true,
@@ -19,34 +32,42 @@ document.addEventListener('alpine:init', () => {
     marketingCookies: false,
     externalMediaCookies: false,
     lang: 'de', // Standard-Sprache
-    
+
     init() {
       // Prüfen, ob bereits eine Cookie-Entscheidung getroffen wurde
       const cookieDecision = this.getCookie('cookie-consent');
       if (cookieDecision) {
         this.showBanner = false;
+        // Store aktualisieren
+        Alpine.store('cookieConsent').showBanner = false;
+
         const settings = JSON.parse(cookieDecision);
         this.cookiesAccepted = settings.accepted;
         this.cookiesRejected = settings.rejected;
         this.statisticsCookies = settings.statistics || false;
         this.marketingCookies = settings.marketing || false;
         this.externalMediaCookies = settings.externalMedia || false;
+      } else {
+        // Banner anzeigen
+        this.showBanner = true;
+        Alpine.store('cookieConsent').showBanner = true;
       }
-      
+
       // Synchronisiere lang-Wert mit dem globalen Alpine-Zustand
       this.$watch('$root.lang', (value) => {
         this.lang = value;
       });
-      
+
       // Initialisiere mit der aktuellen Sprache
       if (typeof this.$root.lang !== 'undefined') {
         this.lang = this.$root.lang;
       }
-      
+
       // Anwenden der gespeicherten Einstellungen bei der Initialisierung
       this.applySettings();
     },
-    
+
+
     acceptAll() {
       this.statisticsCookies = true;
       this.marketingCookies = true;
@@ -60,7 +81,7 @@ document.addEventListener('alpine:init', () => {
       this.externalMediaCookies = false;
       this.savePreferences(false, true);
     },
-    
+
     savePreferences(accepted, rejected) {
       const cookieSettings = {
         accepted: accepted,
@@ -71,16 +92,20 @@ document.addEventListener('alpine:init', () => {
         externalMedia: this.externalMediaCookies,
         date: new Date().toISOString()
       };
-      
+
       // Cookie für 6 Monate setzen
       this.setCookie('cookie-consent', JSON.stringify(cookieSettings), 180);
       this.showBanner = false;
+      // Store aktualisieren
+      Alpine.store('cookieConsent').showBanner = false;
+
       this.cookiesAccepted = accepted;
       this.cookiesRejected = rejected;
-      
+
       // Hier könnten Tracking-Skripte basierend auf den Einstellungen aktiviert werden
       this.applySettings();
     },
+
     
     resetSettings() {
       this.deleteCookie('cookie-consent');

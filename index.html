@@ -480,14 +480,23 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Cookie-Einstellungen-Button (sichtbar wenn Banner geschlossen) -->
-    <div x-data="cookieConsent" x-show="!showBanner" class="fixed bottom-4 right-4 z-50">
-        <button @click="showBanner = true" class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-full flex items-center shadow-lg">
-            <i class="fas fa-cookie-bite mr-2"></i>
-            <span x-text="lang === 'de' ? 'Cookie-Einstellungen' : 'Настройки файлов cookie'"></span>
+    <div x-data="{ openCookieSettings() { Alpine.store('cookieConsent').toggleBanner(true); } }"
+         x-show="!$store.cookieConsent.showBanner"
+         class="fixed bottom-4 right-4 z-50">
+        <button @click="openCookieSettings()"
+                class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-full flex items-center shadow-lg"
+                aria-label="Cookie-Einstellungen öffnen"
+                aria-haspopup="dialog"
+                role="button">
+            <i class="fas fa-cookie-bite mr-2" aria-hidden="true"></i>
+            <!-- Direkter Zugriff auf die Hauptsprache der Seite -->
+            <span x-text="lang === 'de'? 'Cookie-Einstellungen' : 'Настройки файлов cookie'"></span>
         </button>
     </div>
+
+
     
     <!-- JavaScript-Dateien -->
     <script src="assets/js/cookieConsent.js"></script>
