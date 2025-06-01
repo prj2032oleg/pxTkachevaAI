@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="de" x-data="{ lang: 'de', accessibilityMode: false }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title x-text="lang === 'de' ? 'Impressum - Zahnärzte Tkacheva' : 'Выходные данные - Стоматологи Ткачева'"></title>
+    <meta name="description" content="Impressum und rechtliche Informationen der Zahnarztpraxis Tkacheva">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <style>
+        /* Accessibility styles */
+        .accessibility-mode {
+            font-size: 18px !important;
+            line-height: 1.6 !important;
+            letter-spacing: 0.12em !important;
+            word-spacing: 0.16em !important;
+        }
+        .accessibility-mode * {
+            font-family: Arial, sans-serif !important;
+        }
+        .accessibility-mode a, 
+        .accessibility-mode button {
+            text-decoration: underline !important;
+            padding: 8px !important;
+        }
+        .accessibility-mode img {
+            border: 2px solid #000 !important;
+        }
+        .accessibility-mode .text-gray-600,
+        .accessibility-mode .text-gray-700 {
+            color: #000 !important;
+        }
+        .accessibility-mode .bg-gray-100 {
+            background-color: #fff !important;
+        }
+        .accessibility-mode .bg-gray-800,
+        .accessibility-mode .bg-gray-900 {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+        .accessibility-mode .text-blue-600 {
+            color: #0000EE !important;
+        }
+        .accessibility-mode .hover\:text-blue-800:hover {
+            color: #0000EE !important;
+            text-decoration: underline !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-50" :class="{ 'accessibility-mode': accessibilityMode }">
+    <!-- Accessibility Toggle -->
+    <div class="fixed top-4 left-4 z-50">
+        <button @click="accessibilityMode = !accessibilityMode" 
+                class="bg-yellow-500 text-black px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-yellow-600 transition-colors"
+                :aria-pressed="accessibilityMode"
+                aria-label="Barrierefreiheit umschalten">
+            <i class="fas fa-universal-access" aria-hidden="true"></i>
+            <span x-text="accessibilityMode ? (lang === 'de' ? 'Standardansicht' : 'Обычный вид') : (lang === 'de' ? 'Barrierefreie Ansicht' : 'Версия для слабовидящих')"></span>
+        </button>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="fixed top-4 right-4 z-50">
+        <button @click="lang = 'de'" 
+                :class="{ 'bg-blue-600 text-white': lang === 'de', 'bg-gray-200': lang !== 'de' }" 
+                class="px-4 py-2 rounded-l-lg"
+                :aria-pressed="lang === 'de'"
+                aria-label="Deutsch">DE</button>
+        <button @click="lang = 'ru'" 
+                :class="{ 'bg-blue-600 text-white': lang === 'ru', 'bg-gray-200': lang !== 'ru' }" 
+                class="px-4 py-2 rounded-r-lg"
+                :aria-pressed="lang === 'ru'"
+                aria-label="Russisch">RU</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-12">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center h-12" aria-label="Zur Startseite">
+                        <img src="assets/images/logo.png" alt="Zahnarztpraxis Tkacheva Logo" class="h-9 max-h-full w-auto block">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#about" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Über uns' : 'О нас'"></a>
+                    <a href="index.html#clinics" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unsere Kliniken' : 'Наши клиники'"></a>
+                    <a href="index.html#team" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unser Team' : 'Наша команда'"></a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unsere Leistungen' : 'Наши услуги'"></a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Kontakt' : 'Контакты'"></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Impressum Content -->
+    <section class="pt-32 pb-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold mb-8" x-text="lang === 'de' ? 'Impressum' : 'Выходные данные'"></h1>
+            
+            <div x-show="lang === 'de'" class="space-y-6">
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Angaben gemäß § 5 TMG:</h2>
+                    <p>Zahnarztpraxis Tkacheva</p>
+                    <p>Hauptstr. 92</p>
+                    <p>79211 Denzlingen</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Kontakt:</h2>
+                    <p>Telefon: <a href="tel:+497666912020" class="hover:underline">+49 7666 912020</a></p>
+                    <p>Telefax: +49 7666 912030</p>
+                    <p>E-Mail: <a href="mailto:info@px-tkacheva.de" class="hover:underline">info@px-tkacheva.de</a></p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Berufsbezeichnung und berufsrechtliche Regelungen</h2>
+                    <p>Berufsbezeichnung: Zahnärztin</p>
+                    <p>Zuständige Kammer: Landeszahnärztekammer Baden-Württemberg</p>
+                    <p>Verliehen durch: Deutschland</p>
+                    <p>Es gelten folgende berufsrechtliche Regelungen: Zahnheilkundegesetz, Heilberufe-Kammergesetz, Berufsordnung für Zahnärzte</p>
+                    <p>Regelungen einsehbar unter: <a href="https://lzk-bw.de/zahnaerzte/" class="text-blue-600 hover:underline" target="_blank" rel="noopener">https://lzk-bw.de/zahnaerzte/</a></p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Aufsichtsbehörde:</h2>
+                    <p>Kassenzahnärztliche Vereinigung Baden-Württemberg</p>
+                    <p>Albstadtweg 9</p>
+                    <p>70567 Stuttgart</p>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</h2>
+                    <p>Tatiana Tkacheva</p>
+                    <p>Hauptstr. 92</p>
+                    <p>79211 Denzlingen</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Streitschlichtung</h2>
+                    <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" class="text-blue-600 hover:underline" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.</p>
+                    <p>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+                    <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Haftung für Inhalte</h2>
+                    <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+                    <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Haftung für Links</h2>
+                    <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p>
+                    <p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Urheberrecht</h2>
+                    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+                    <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+                </div>
+            </div>
+            
+            <div x-show="lang === 'ru'" class="space-y-6">
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Информация согласно § 5 TMG:</h2>
+                    <p>Стоматологическая клиника Ткачева</p>
+                    <p>Hauptstr. 92</p>
+                    <p>79211 Denzlingen</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Контакты:</h2>
+                    <p>Телефон: <a href="tel:+497666912020" class="hover:underline">+49 7666 912020</a></p>
+                    <p>Факс: +49 7666 912030</p>
+                    <p>Электронная почта: <a href="mailto:info@px-tkacheva.de" class="hover:underline">info@px-tkacheva.de</a></p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Профессиональное звание и профессиональные правила</h2>
+                    <p>Профессиональное звание: Стоматолог</p>
+                    <p>Компетентная палата: Земельная стоматологическая палата Баден-Вюртемберга</p>
+                    <p>Присвоено: Германия</p>
+                    <p>Применяются следующие профессиональные правила: Закон о стоматологии, Закон о палатах медицинских профессий, Профессиональный кодекс для стоматологов</p>
+                    <p>Правила можно посмотреть на: <a href="https://lzk-bw.de/zahnaerzte/" class="text-blue-600 hover:underline" target="_blank" rel="noopener">https://lzk-bw.de/zahnaerzte/</a></p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Надзорный орган:</h2>
+                    <p>Ассоциация стоматологов фондов медицинского страхования Баден-Вюртемберга</p>
+                    <p>Albstadtweg 9</p>
+                    <p>70567 Stuttgart</p>
+                </div>
+
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Ответственный за содержание согласно § 55 абз. 2 RStV:</h2>
+                    <p>Татьяна Ткачева</p>
+                    <p>Hauptstr. 92</p>
+                    <p>79211 Denzlingen</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Разрешение споров</h2>
+                    <p>Европейская комиссия предоставляет платформу для онлайн-разрешения споров (ОРС): <a href="https://ec.europa.eu/consumers/odr/" class="text-blue-600 hover:underline" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.</p>
+                    <p>Наш адрес электронной почты вы найдете выше в выходных данных.</p>
+                    <p>Мы не готовы и не обязаны участвовать в процедуре разрешения споров перед органом по защите прав потребителей.</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Ответственность за содержание</h2>
+                    <p>Как поставщик услуг, мы несем ответственность за собственный контент на этих страницах в соответствии с общими законами согласно § 7 абз. 1 TMG. Однако, согласно §§ 8-10 TMG, мы как поставщик услуг не обязаны контролировать переданную или хранимую стороннюю информацию или расследовать обстоятельства, указывающие на незаконную деятельность.</p>
+                    <p>Обязательства по удалению или блокированию использования информации в соответствии с общими законами остаются в силе. Тем не менее, ответственность в этом отношении возможна только с момента знания о конкретном нарушении. При получении сведений о соответствующих нарушениях мы немедленно удалим этот контент.</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Ответственность за ссылки</h2>
+                    <p>Наше предложение содержит ссылки на внешние веб-сайты третьих лиц, на содержание которых мы не имеем влияния. Поэтому мы не можем нести ответственность за этот сторонний контент. За содержание связанных страниц всегда отвечает соответствующий поставщик или оператор страниц. Связанные страницы были проверены на возможные юридические нарушения на момент создания ссылки. Незаконного содержания на момент создания ссылок обнаружено не было.</p>
+                    <p>Однако постоянный контроль содержания связанных страниц не является разумным без конкретных доказательств нарушения закона. При получении сведений о нарушениях закона мы немедленно удалим такие ссылки.</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Авторское право</h2>
+                    <p>Контент и произведения, созданные операторами сайта на этих страницах, подпадают под действие немецкого авторского права. Воспроизведение, обработка, распространение и любой вид использования за пределами авторского права требуют письменного согласия соответствующего автора или создателя. Загрузки и копии этой страницы разрешены только для личного, некоммерческого использования.</p>
+                    <p>Если содержание на этой странице не было создано оператором, соблюдаются авторские права третьих лиц. В частности, содержание третьих лиц отмечено как таковое. Тем не менее, если вы заметите нарушение авторских прав, просим сообщить нам об этом. При получении сведений о нарушениях мы немедленно удалим такой контент.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+                <p>&copy; 2023 Zahnarztpraxis Tkacheva. <a href="impressum.html" class="text-blue-400 hover:text-blue-300" x-text="lang === 'de' ? 'Impressum' : 'Выходные данные'"></a> | <a href="datenschutz.html" class="text-blue-400 hover:text-blue-300" x-text="lang === 'de' ? 'Datenschutzerklärung' : 'Политика конфиденциальности'"></a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Cookie-Banner -->
+    <div x-data="cookieConsent" x-show="showBanner" class="fixed bottom-0 inset-x-0 z-50 bg-gray-900 text-white p-4 shadow-lg" x-transition>
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0 md:mr-4">
+                    <h3 class="text-xl font-bold mb-2" x-text="lang === 'de' ? 'Cookie-Einstellungen' : 'Настройки файлов cookie'"></h3>
+                    <p class="text-sm" x-text="lang === 'de' ? 'Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern. Sie können entscheiden, welche Cookies Sie zulassen möchten.' : 'Этот веб-сайт использует файлы cookie для улучшения вашего опыта. Вы можете решить, какие файлы cookie разрешить.'"></p>
+                    <button @click="showDetails = !showDetails" class="text-sm text-blue-300 hover:underline mt-1" aria-expanded="false" x-bind:aria-expanded="showDetails">
+                        <span x-text="lang === 'de' ? (showDetails ? 'Details ausblenden' : 'Details anzeigen') : (showDetails ? 'Скрыть детали' : 'Показать детали')"></span>
+                    </button>
+                </div>
+                <div class="flex space-x-3">
+                    <button @click="rejectAll()" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded transition" aria-label="Alle Cookies ablehnen">
+                        <span x-text="lang === 'de' ? 'Alle ablehnen' : 'Отклонить все'"></span>
+                    </button>
+                    <button @click="acceptAll()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition" aria-label="Alle Cookies akzeptieren">
+                        <span x-text="lang === 'de' ? 'Alle akzeptieren' : 'Принять все'"></span>
+                    </button>
+                    <button @click="savePreferences(true, false)" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition" aria-label="Cookie-Auswahl speichern">
+                        <span x-text="lang === 'de' ? 'Auswahl speichern' : 'Сохранить выбор'"></span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Cookie-Details -->
+            <div x-show="showDetails" class="mt-4" x-transition>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-gray-800 p-3 rounded">
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="font-semibold">
+                                <span x-text="lang === 'de' ? 'Notwendige Cookies' : 'Необходимые файлы cookie'"></span>
+                            </label>
+                            <div class="relative">
+                                <input type="checkbox" checked disabled class="sr-only" aria-label="Notwendige Cookies (immer aktiviert)">
+                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                <div class="dot absolute w-6 h-6 bg-green-500 rounded-full shadow -left-1 -top-1 transition"></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies sind für das Funktionieren der Website erforderlich und können nicht deaktiviert werden.' : 'Эти файлы cookie необходимы для работы веб-сайта и не могут быть отключены.'"></p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-3 rounded">
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="font-semibold" for="statistics-cookies">
+                                <span x-text="lang === 'de' ? 'Statistik-Cookies' : 'Статистические файлы cookie'"></span>
+                            </label>
+                            <div class="relative">
+                                <input type="checkbox" id="statistics-cookies" x-model="statisticsCookies" class="sr-only" aria-label="Statistik-Cookies">
+                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                <div :class="statisticsCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies sammeln Informationen, wie Sie unsere Website nutzen.' : 'Эти файлы cookie собирают информацию о том, как вы используете наш веб-сайт.'"></p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-3 rounded">
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="font-semibold" for="marketing-cookies">
+                                <span x-text="lang === 'de' ? 'Marketing-Cookies' : 'Маркетинговые файлы cookie'"></span>
+                            </label>
+                            <div class="relative">
+                                <input type="checkbox" id="marketing-cookies" x-model="marketingCookies" class="sr-only" aria-label="Marketing-Cookies">
+                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                <div :class="marketingCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies werden verwendet, um Werbung relevanter für Sie zu gestalten.' : 'Эти файлы cookie используются, чтобы сделать рекламу более актуальной для вас.'"></p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-3 rounded">
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="font-semibold" for="external-media-cookies">
+                                <span x-text="lang === 'de' ? 'Externe Medien' : 'Внешние медиа'"></span>
+                            </label>
+                            <div class="relative">
+                                <input type="checkbox" id="external-media-cookies" x-model="externalMediaCookies" class="sr-only" aria-label="Externe Medien Cookies">
+                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+                                <div :class="externalMediaCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-300" x-text="lang === 'de' ? 'Externe Medien (z.B. Videos) können Cookies setzen, wenn sie eingebettet werden.' : 'Внешние медиа (например, видео) могут устанавливать файлы cookie при их встраивании.'"></p>
+                    </div>
+                </div>
+                
+                <div class="mt-4 text-sm">
+                    <p x-text="lang === 'de' ? 'Für weitere Informationen besuchen Sie bitte unsere' : 'Для получения дополнительной информации, пожалуйста, посетите нашу'"></p>
+                    <a href="datenschutz.html" class="text-blue-300 hover:underline" x-text="lang === 'de' ? 'Datenschutzerklärung' : 'Политику конфиденциальности'"></a>.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cookie-Einstellungen-Button (sichtbar wenn Banner geschlossen) -->
+    <div x-data="cookieConsent" x-show="!showBanner" class="fixed bottom-4 right-4 z-50">
+        <button @click="showBanner = true" class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-full flex items-center shadow-lg" aria-label="Cookie-Einstellungen öffnen">
+            <i class="fas fa-cookie-bite mr-2" aria-hidden="true"></i>
+            <span x-text="lang === 'de' ? 'Cookie-Einstellungen' : 'Настройки файлов cookie'"></span>
+        </button>
+    </div>
+    
+    <!-- JavaScript-Dateien -->
+    <script src="assets/js/cookieConsent.js"></script>
+</body>
+</html>
