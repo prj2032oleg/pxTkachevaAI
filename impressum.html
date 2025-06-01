@@ -234,140 +234,63 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Zahnarztpraxis Denzlingen' : 'Zahnarztpraxis Denzlingen'"></h3>
+                    <div class="space-y-2">
+                        <p>Hauptstr. 92, 79211 Denzlingen</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hauptstr.+92,+79211+Denzlingen" target="_blank" class="text-blue-400 hover:text-blue-300 inline-flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
+                        </a>
+                        <p>Tel: +49 7666 912020</p>
+                        <p>Fax: +49 7666 912030</p>
+                        <p>E-Mail: info@px-tkacheva.de</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Zahnarztpraxis Hinterzarten' : 'Zahnarztpraxis Hinterzarten'"></h3>
+                    <div class="space-y-2">
+                        <p>Freiburger Straße 3, 79856 Hinterzarten</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Freiburger+Straße+3,+79856+Hinterzarten" target="_blank" class="text-blue-400 hover:text-blue-300 inline-flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
+                        </a>
+                        <p>Tel: +49 7652 1331</p>
+                        <p>Fax: +49 7652 1331</p>
+                        <p>E-Mail: za.hinterzarten@gmx.de</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Zahnarztpraxis Freiburg-Herdern' : 'Zahnarztpraxis Freiburg-Herdern'"></h3>
+                    <div class="space-y-2">
+                        <p class="font-semibold"></p>
+                        <p>Freiburger Straße 3, 79856 Hinterzarten</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Freiburger+Straße+3,+79856+Hinterzarten" target="_blank" class="text-blue-400 hover:text-blue-300 inline-flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span x-text="lang === 'de' ? 'Auf Google Maps anzeigen' : 'Показать на Google Maps'"></span>
+                        </a>
+                        <p>Tel: +49 761 36331</p>
+                        <p>Fax: +49 761 57896</p>
+                        <p>E-Mail: fr@px-tkacheva.de</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" x-text="lang === 'de' ? 'Öffnungszeiten' : 'Часы работы'"></h3>
+                    <div class="space-y-2">
+                        <p x-text="lang === 'de' ? 'Mo. - Do.: 08:00 - 18:00 Uhr' : 'Пн. - Чт.: 08:00 - 18:00'"></p>
+                        <p x-text="lang === 'de' ? 'Fr.: 08:00 - 12:00 Uhr' : 'Пт.: 08:00 - 12:00'"></p>
+                        <p x-text="lang === 'de' ? 'Sa. - So.: Geschlossen' : 'Сб. - Вс.: Закрыто'"></p>
+                    </div>
+                </div>
+            </div>
             <div class="mt-8 pt-8 border-t border-gray-800 text-center">
-                <p>&copy; 2023 Zahnarztpraxis Tkacheva. <a href="impressum.html" class="text-blue-400 hover:text-blue-300" x-text="lang === 'de' ? 'Impressum' : 'Выходные данные'"></a> | <a href="datenschutz.html" class="text-blue-400 hover:text-blue-300" x-text="lang === 'de' ? 'Datenschutzerklärung' : 'Политика конфиденциальности'"></a></p>
+                <p>&copy; 2025 Zahnarztpraxis Tkacheva. <a href="impressum.html" class="text-blue-400 hover:text-blue-300" x-text="lang === 'de' ? 'Impressum' : 'Выходные данные'"></a> | <a href="datenschutz.html" class="text-blue-400 hover:text-blue-300" x-text="lang === 'de' ? 'Datenschutzerklärung' : 'Политика конфиденциальности'"></a></p>
             </div>
         </div>
     </footer>
-    
-    <!-- Cookie-Banner -->
-    <div x-data="cookieConsent" x-show="showBanner" class="fixed bottom-0 inset-x-0 z-50 bg-gray-900 text-white p-4 shadow-lg" x-transition
-         role="dialog" aria-modal="true" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-description">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="mb-4 md:mb-0 md:mr-4">
-                    <h3 id="cookie-consent-title" class="text-xl font-bold mb-2" x-text="lang === 'de' ? 'Cookie-Einstellungen' : 'Настройки файлов cookie'"></h3>
-                    <p id="cookie-consent-description" class="text-sm" x-text="lang === 'de' ? 'Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern. Sie können entscheiden, welche Cookies Sie zulassen möchten.' : 'Этот веб-сайт использует файлы cookie для улучшения вашего опыта. Вы можете решить, какие файлы cookie разрешить.'"></p>
-                    <button @click="showDetails = !showDetails" 
-                            class="text-sm text-blue-300 hover:underline mt-1" 
-                            :aria-expanded="showDetails" 
-                            aria-controls="cookie-details-section"
-                            role="button">
-                        <span x-text="lang === 'de' ? (showDetails ? 'Details ausblenden' : 'Details anzeigen') : (showDetails ? 'Скрыть детали' : 'Показать детали')"></span>
-                    </button>
-                </div>
-                <div class="flex space-x-3">
-                    <button @click="rejectAll()" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded transition" 
-                            aria-label="Alle Cookies ablehnen" 
-                            role="button">
-                        <span x-text="lang === 'de' ? 'Alle ablehnen' : 'Отклонить все'"></span>
-                    </button>
-                    <button @click="acceptAll()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition" 
-                            aria-label="Alle Cookies akzeptieren"
-                            role="button">
-                        <span x-text="lang === 'de' ? 'Alle akzeptieren' : 'Принять все'"></span>
-                    </button>
-                    <button @click="savePreferences(true, false)" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition" 
-                            aria-label="Cookie-Auswahl speichern"
-                            role="button">
-                        <span x-text="lang === 'de' ? 'Auswahl speichern' : 'Сохранить выбор'"></span>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Cookie-Details -->
-            <div id="cookie-details-section" x-show="showDetails" class="mt-4" x-transition>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-gray-800 p-3 rounded">
-                        <div class="flex items-center justify-between mb-2">
-                            <label class="font-semibold">
-                                <span x-text="lang === 'de' ? 'Notwendige Cookies' : 'Необходимые файлы cookie'"></span>
-                            </label>
-                            <div class="relative">
-                                <input type="checkbox" checked disabled class="sr-only" aria-label="Notwendige Cookies (immer aktiviert)">
-                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                <div class="dot absolute w-6 h-6 bg-green-500 rounded-full shadow -left-1 -top-1 transition"></div>
-                            </div>
-                        </div>
-                        <p class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies sind für das Funktionieren der Website erforderlich und können nicht deaktiviert werden.' : 'Эти файлы cookie необходимы для работы веб-сайта и не могут быть отключены.'"></p>
-                    </div>
-                    
-                    <div class="bg-gray-800 p-3 rounded">
-                        <div class="flex items-center justify-between mb-2">
-                            <label class="font-semibold" for="statistics-cookies">
-                                <span x-text="lang === 'de' ? 'Statistik-Cookies' : 'Статистические файлы cookie'"></span>
-                            </label>
-                            <div class="relative">
-                                <input type="checkbox" id="statistics-cookies" x-model="statisticsCookies" class="sr-only" 
-                                       aria-checked="true"
-                                       aria-labelledby="statistics-label"
-                                       role="switch">
-                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                <div :class="statisticsCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
-                            </div>
-                        </div>
-                        <p id="statistics-label" class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies sammeln Informationen, wie Sie unsere Website nutzen.' : 'Эти файлы cookie собирают информацию о том, как вы используете наш веб-сайт.'"></p>
-                        <p class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies sammeln Informationen, wie Sie unsere Website nutzen.' : 'Эти файлы cookie собирают информацию о том, как вы используете наш веб-сайт.'"></p>
-                    </div>
-                    
-                    <div class="bg-gray-800 p-3 rounded">
-                        <div class="flex items-center justify-between mb-2">
-                            <label class="font-semibold" for="marketing-cookies">
-                                <span x-text="lang === 'de' ? 'Marketing-Cookies' : 'Маркетинговые файлы cookie'"></span>
-                            </label>
-                            <div class="relative">
-                                <input type="checkbox" id="marketing-cookies" x-model="marketingCookies" class="sr-only"
-                                       aria-checked="true"
-                                       aria-labelledby="marketing-label"
-                                       role="switch">
-                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                <div :class="marketingCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
-                            </div>
-                        </div>
-                        <p id="marketing-label" class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies werden verwendet, um Werbung relevanter für Sie zu gestalten.' : 'Эти файлы cookie используются, чтобы сделать рекламу более актуальной для вас.'"></p>
-                        <p class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies werden verwendet, um Werbung relevanter für Sie zu gestalten.' : 'Эти файлы cookie используются, чтобы сделать рекламу более актуальной для вас.'"></p>
-                    </div>
-                    
-                    <div class="bg-gray-800 p-3 rounded">
-                        <div class="flex items-center justify-between mb-2">
-                            <label class="font-semibold" for="external-media-cookies">
-                                <span x-text="lang === 'de' ? 'Externe Medien' : 'Внешние медиа'"></span>
-                            </label>
-                            <div class="relative">
-                                <input type="checkbox" id="external-media-cookies" x-model="externalMediaCookies" class="sr-only"
-                                       aria-checked="true"
-                                       aria-labelledby="external-media-label"
-                                       role="switch">
-                                <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                <div :class="externalMediaCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
-                            </div>
-                        </div>
-                        <p id="external-media-label" class="text-xs text-gray-300" x-text="lang === 'de' ? 'Externe Medien (z.B. Videos) können Cookies setzen, wenn sie eingebettet werden.' : 'Внешние медиа (например, видео) могут устанавливать файлы cookie при их встраивании.'"></p>
-                        <p class="text-xs text-gray-300" x-text="lang === 'de' ? 'Externe Medien (z.B. Videos) können Cookies setzen, wenn sie eingebettet werden.' : 'Внешние медиа (например, видео) могут устанавливать файлы cookie при их встраивании.'"></p>
-                    </div>
-                </div>
-                
-                <div class="mt-4 text-sm">
-                    <p x-text="lang === 'de' ? 'Für weitere Informationen besuchen Sie bitte unsere' : 'Для получения дополнительной информации, пожалуйста, посетите нашу'"></p>
-                    <a href="datenschutz.html" class="text-blue-300 hover:underline" x-text="lang === 'de' ? 'Datenschutzerklärung' : 'Политику конфиденциальности'"></a>.
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Cookie-Einstellungen-Button (sichtbar wenn Banner geschlossen) -->
-    <div x-data="cookieConsent" x-show="!showBanner" class="fixed bottom-4 right-4 z-50">
-        <button @click="showBanner = true" 
-                class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-full flex items-center shadow-lg" 
-                aria-label="Cookie-Einstellungen öffnen"
-                aria-haspopup="dialog"
-                role="button">
-            <i class="fas fa-cookie-bite mr-2" aria-hidden="true"></i>
-            <span x-text="lang === 'de' ? 'Cookie-Einstellungen' : 'Настройки файлов cookie'"></span>
-        </button>
-    </div>
-    
-    <!-- JavaScript-Dateien -->
+   <!-- JavaScript-Dateien -->
+    <script src="assets/js/cookie-banner.js"></script>
     <script src="assets/js/cookieConsent.js"></script>
-</body>
+  </body>
 </html>
