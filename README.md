@@ -37,5 +37,62 @@
 
 **Все используемые библиотеки, иконки и стили разрешены для коммерческого использования.**
 
-**Рекомендуется оставить ссылку на https://fontawesome.com при использовании Font Awesome.**
+**Рекомендуется оставить ссылку на [Font Awesome](https://fontawesome.com) при использовании Font Awesome.**
 
+## Cookie-Banner
+
+### Русский
+- **Лицензия:** MIT License
+- **Функциональность:** Управление согласием на использование файлов cookie в соответствии с GDPR/DSGVO
+- **Технологии:** Vanilla JavaScript, Tailwind CSS
+- **Возможности:**
+  - Управление различными категориями cookie (необходимые, статистика, маркетинг, внешние медиа)
+  - Локализация на нескольких языках (немецкий, русский)
+  - Блокировка внешних медиа (YouTube, Google Maps) до получения согласия
+  - Сохранение настроек пользователя на 180 дней
+
+### Deutsch
+- **Lizenz:** MIT License
+- **Funktionalität:** Cookie-Consent-Management in Übereinstimmung mit GDPR/DSGVO
+- **Technologien:** Vanilla JavaScript, Tailwind CSS
+- **Funktionen:**
+  - Verwaltung verschiedener Cookie-Kategorien (notwendig, Statistik, Marketing, externe Medien)
+  - Mehrsprachigkeit (Deutsch, Russisch)
+  - Blockierung externer Medien (YouTube, Google Maps) bis zur Einwilligung
+  - Speicherung der Benutzereinstellungen für 180 Tage
+
+### English
+- **License:** MIT License
+- **Functionality:** Cookie consent management in compliance with GDPR/DSGVO
+- **Technologies:** Vanilla JavaScript, Tailwind CSS
+- **Features:**
+  - Management of different cookie categories (necessary, statistics, marketing, external media)
+  - Multi-language support (German, Russian)
+  - Blocking external media (YouTube, Google Maps) until consent is given
+  - Saving user preferences for 180 days
+
+## Установка и использование / Installation und Verwendung / Installation and Usage
+
+### Русский
+1. Добавьте скрипт `cookie-banner.js` на вашу страницу перед закрывающим тегом `</body>`:
+   ```html
+   <script src="assets/js/cookie-banner.js"></script>
+   ```
+2. Для YouTube и Google Maps плейсхолдеров, используйте класс `.external-media-placeholder` 
+   для контейнеров с соответствующими data-атрибутами.
+
+### Deutsch
+1. Fügen Sie das Script `cookie-banner.js` vor dem schließenden `</body>`-Tag ein:
+   ```html
+   <script src="assets/js/cookie-banner.js"></script>
+   ```
+2. Für YouTube und Google Maps Platzhalter verwenden Sie die Klasse `.external-media-placeholder` 
+   für Container mit entsprechenden data-Attributen.
+
+### English
+1. Add the `cookie-banner.js` script to your page before the closing `</body>` tag:
+   ```html
+   <script src="assets/js/cookie-banner.js"></script>
+   ```
+2. For YouTube and Google Maps placeholders, use the `.external-media-placeholder` class 
+   for containers with appropriate data attributes.
