@@ -72,9 +72,7 @@
             text-decoration: underline !important;
         }
         /* Abstand über den Teammitglied-Fotos */
-        #team .team-member-photo {
-            margin-top: 3px;
-        }
+
 
     </style>
 </head>
@@ -112,7 +110,7 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#about" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Über uns' : 'О нас'"></a>
-                    <a href="#clinics" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unsere Kliniken' : 'Наши клиники'"></a>
+                    <a href="#clinics" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unsere Zahnpraxen' : 'Наши клиники'"></a>
                     <a href="#team" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unser Team' : 'Наша команда'"></a>
                     <a href="#services" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unsere Leistungen' : 'Наши услуги'"></a>
                     <a href="#contact" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Kontakt' : 'Контакты'"></a>
@@ -245,7 +243,7 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <template x-for="(member, idx) in team" :key="idx">
                     <div class="text-center cursor-pointer" @click="openProfile(member)">
-                        <img :src="member.photo" :alt="member.fullName" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-2 border-blue-200">
+                        <img :src="member.photo" :alt="member.fullName" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-2 border-blue-200" alt="">
                         <h3 class="text-lg font-semibold" x-text="member.fullName"></h3>
                         <p class="text-gray-600" x-text="member.position"></p>
                     </div>
@@ -256,7 +254,7 @@
         <div x-show="showProfile" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50" x-cloak>
             <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative">
                 <button @click="showProfile = false" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-2xl">&times;</button>
-                <img :src="selectedMember.photo" :alt="selectedMember.fullName" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-2 border-blue-200">
+                <img :src="selectedMember.photo" :alt="selectedMember.fullName" class="w-48 h-48 rounded-full mx-auto mb-4 object-cover border-2 border-blue-200" alt="">
                 <h3 class="text-2xl font-bold text-center mb-2" x-text="selectedMember.fullName"></h3>
                 <p class="text-center text-gray-700 mb-2" x-text="selectedMember.position"></p>
                 <p class="text-center text-gray-700 mb-4" x-text="selectedMember.clinic"></p>
