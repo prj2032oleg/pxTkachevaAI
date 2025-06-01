@@ -13,6 +13,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://px-tkacheva.de">
     <meta property="og:image" content="/assets/images/favicon.ico">
+    <!-- Bestehende Meta-Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Optimierte Title-Tags -->
+    <title x-text="lang === 'de' ? 'Zahnärzte Tkacheva - Zahnarztpraxis in Denzlingen, Hinterzarten & Freiburg' : 'Стоматологи Ткачева - Стоматологическая клиника в Денцлингене, Хинтерцартене и Фрайбурге'"></title>
+
+    <!-- Erweiterte Meta-Description -->
+    <meta name="description" content="Ihre mehrsprachige Zahnarztpraxis in Denzlingen, Hinterzarten und Freiburg. Professionelle Zahnbehandlung in deutscher und russischer Sprache. Implantate, Ästhetische Zahnheilkunde, Prophylaxe und mehr.">
+
+    <!-- Erweiterte Keywords -->
+    <meta name="keywords" content="Zahnarzt Denzlingen, Zahnarzt Hinterzarten, Zahnarzt Freiburg, russischer Zahnarzt, Implantate, Prophylaxe, Zahnreinigung, Zahnersatz, Kinderzahnheilkunde, Angstpatienten">
+
+    <!-- Canonical URL -->
+    <meta rel="canonical" href="https://px-tkacheva.de/">
     <!-- Scripts und Stylesheets -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -56,6 +71,11 @@
             color: #0000EE !important;
             text-decoration: underline !important;
         }
+        /* Abstand über den Teammitglied-Fotos */
+        #team .team-member-photo {
+            margin-top: 3px;
+        }
+
     </style>
 </head>
 <body class="bg-gray-50" :class="{ 'accessibility-mode': accessibilityMode }">
@@ -102,7 +122,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-24 pb-12 bg-gradient-to-r from-blue-500 to-blue-700">
+    <section id="home" class="pt-32 pb-16 bg-gradient-to-r from-blue-500 to-blue-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6" x-text="lang === 'de' ? 'Ihr Lächeln ist unsere Priorität' : 'Ваша улыбка - наш приоритет'"></h1>
@@ -141,13 +161,13 @@
     <!-- Clinics Section -->
     <section id="clinics" class="py-16 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'de' ? 'Unsere Kliniken' : 'Наши клиники'"></h2>
+            <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'de' ? 'Unsere Zahnpraxen' : 'Наши стоматологические клиники'"></h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Clinic 1 -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showDetails: false }">
-                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dental Practice" class="w-full h-48 object-cover">
+                    <img src="praxis/pxDenzlingen/p2.jpg" alt="Dental Practice" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tkacheva Denzlingen</h3>
+                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tatiana Tkacheva Denzlingen</h3>
                         <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Hauptstr. 92, 79211 Denzlingen' : 'Hauptstr. 92, 79211 Denzlingen'"></p>
                         <a href="https://www.google.com/maps/search/?api=1&query=Hauptstr.+92,+79211+Denzlingen" target="_blank" class="text-blue-600 hover:text-blue-800 mb-2 inline-flex items-center block">
                             <i class="fas fa-map-marker-alt mr-2"></i>
@@ -169,9 +189,9 @@
 
                 <!-- Clinic 2 -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showDetails: false }">
-                    <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dental Practice" class="w-full h-48 object-cover">
+                    <img src="praxis/pxHinterzarten/06.JPG" alt="Dental Practice" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tatiana Tkacheva</h3>
+                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tatiana Tkacheva Hinterzarten</h3>
                         <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Freiburger Straße 3, 79856 Hinterzarten' : 'Freiburger Straße 3, 79856 Hinterzarten'"></p>
                         <a href="https://www.google.com/maps/search/?api=1&query=Freiburger+Straße+3,+79856+Hinterzarten" target="_blank" class="text-blue-600 hover:text-blue-800 mb-2 inline-flex items-center block">
                             <i class="fas fa-map-marker-alt mr-2"></i>
@@ -193,9 +213,9 @@
 
                 <!-- Clinic 3 -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showDetails: false }">
-                    <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dental Practice" class="w-full h-48 object-cover">
+                    <img src="praxis/pxFreiburg/01.JPG" alt="Dental Practice" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tkacheva-Freiburg</h3>
+                        <h3 class="text-xl font-semibold mb-2">Zahnarztpraxis Tatiana Tkacheva Freiburg</h3>
                         <p class="text-gray-600 mb-4" x-text="lang === 'de' ? 'Hauptstraße 13A, 79104 Freiburg im Breisgau' : 'Hauptstraße 13A, 79104 Freiburg im Breisgau'"></p>
                         <a href="https://www.google.com/maps/search/?api=1&query=Hauptstraße+Straße+13A,+79104+Freiburg+im+Breisgau" target="_blank" class="text-blue-600 hover:text-blue-800 mb-2 inline-flex items-center block">
                             <i class="fas fa-map-marker-alt mr-2"></i>
