@@ -390,16 +390,11 @@
         </div>
     </footer>
     <!-- Cookie-Banner -->
-    <div x-show="$store.cookieConsent.showBanner"
-         class="fixed bottom-0 inset-x-0 z-50 bg-gray-900 text-white p-4 shadow-lg"
-         x-transition
-         role="dialog"
-         aria-modal="true"
-         aria-labelledby="cookie-consent-title">
+    <div x-data="cookieConsent" x-show="showBanner" class="fixed bottom-0 inset-x-0 z-50 bg-gray-900 text-white p-4 shadow-lg" x-transition>
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="mb-4 md:mb-0 md:mr-4">
-                    <h3 id="cookie-consent-title" class="text-xl font-bold mb-2">
+                    <h3 class="text-xl font-bold mb-2">
                         <span x-show="$root.lang === 'de'">Cookie-Einstellungen</span>
                         <span x-show="$root.lang === 'ru'">Настройки файлов cookie</span>
                     </h3>
@@ -407,33 +402,21 @@
                         <span x-show="$root.lang === 'de'">Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern. Sie können entscheiden, welche Cookies Sie zulassen möchten.</span>
                         <span x-show="$root.lang === 'ru'">Этот веб-сайт использует файлы cookie для улучшения вашего опыта. Вы можете решить, какие файлы cookie разрешить.</span>
                     </p>
-                    <button @click="$store.cookieConsent.showDetails = !$store.cookieConsent.showDetails"
-                            class="text-sm text-blue-300 hover:underline mt-1"
-                            :aria-expanded="$store.cookieConsent.showDetails"
-                            aria-controls="cookie-details-section"
-                            role="button">
-                        <span x-show="$root.lang === 'de' && !$store.cookieConsent.showDetails">Details anzeigen</span>
-                        <span x-show="$root.lang === 'de' && $store.cookieConsent.showDetails">Details ausblenden</span>
-                        <span x-show="$root.lang === 'ru' && !$store.cookieConsent.showDetails">Показать детали</span>
-                        <span x-show="$root.lang === 'ru' && $store.cookieConsent.showDetails">Скрыть детали</span>
+                    <button @click="toggleDetails()" class="text-sm text-blue-300 hover:underline mt-1">
+                        <span x-show="$root.lang === 'de'" x-text="showDetails ? 'Details ausblenden' : 'Details anzeigen'"></span>
+                        <span x-show="$root.lang === 'ru'" x-text="showDetails ? 'Скрыть детали' : 'Показать детали'"></span>
                     </button>
                 </div>
                 <div class="flex space-x-3">
-                    <button @click="$store.cookieConsent.rejectAll()"
-                            class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded transition"
-                            role="button">
+                    <button @click="$store.cookieState.rejectAll()" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded transition">
                         <span x-show="$root.lang === 'de'">Alle ablehnen</span>
                         <span x-show="$root.lang === 'ru'">Отклонить все</span>
                     </button>
-                    <button @click="$store.cookieConsent.acceptAll()"
-                            class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition"
-                            role="button">
+                    <button @click="$store.cookieState.acceptAll()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition">
                         <span x-show="$root.lang === 'de'">Alle akzeptieren</span>
                         <span x-show="$root.lang === 'ru'">Принять все</span>
                     </button>
-                    <button @click="$store.cookieConsent.savePreferences(true, false)"
-                            class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition"
-                            role="button">
+                    <button @click="$store.cookieState.savePreferences()" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition">
                         <span x-show="$root.lang === 'de'">Auswahl speichern</span>
                         <span x-show="$root.lang === 'ru'">Сохранить выбор</span>
                     </button>
@@ -441,7 +424,7 @@
             </div>
 
             <!-- Cookie-Details -->
-            <div id="cookie-details-section" x-show="$store.cookieConsent.showDetails" class="mt-4" x-transition>
+            <div x-show="showDetails" class="mt-4" x-transition>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="bg-gray-800 p-3 rounded">
                         <div class="flex items-center justify-between mb-2">
@@ -468,9 +451,9 @@
                                 <span x-show="$root.lang === 'ru'">Статистические файлы cookie</span>
                             </label>
                             <div class="relative">
-                                <input type="checkbox" id="statistics-cookies" x-model="$store.cookieConsent.statisticsCookies" class="sr-only" role="switch">
+                                <input type="checkbox" id="statistics-cookies" x-model="$store.cookieState.statisticsCookies" class="sr-only" role="switch">
                                 <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                <div :class="$store.cookieConsent.statisticsCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
+                                <div :class="$store.cookieState.statisticsCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
                             </div>
                         </div>
                         <p class="text-xs text-gray-300">
@@ -486,9 +469,9 @@
                                 <span x-show="$root.lang === 'ru'">Маркетинговые файлы cookie</span>
                             </label>
                             <div class="relative">
-                                <input type="checkbox" id="marketing-cookies" x-model="$store.cookieConsent.marketingCookies" class="sr-only" role="switch">
+                                <input type="checkbox" id="marketing-cookies" x-model="$store.cookieState.marketingCookies" class="sr-only" role="switch">
                                 <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                <div :class="$store.cookieConsent.marketingCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
+                                <div :class="$store.cookieState.marketingCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
                             </div>
                         </div>
                         <p class="text-xs text-gray-300">
@@ -504,9 +487,9 @@
                                 <span x-show="$root.lang === 'ru'">Внешние медиа</span>
                             </label>
                             <div class="relative">
-                                <input type="checkbox" id="external-media-cookies" x-model="$store.cookieConsent.externalMediaCookies" class="sr-only" role="switch">
+                                <input type="checkbox" id="external-media-cookies" x-model="$store.cookieState.externalMediaCookies" class="sr-only" role="switch">
                                 <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-                                <div :class="$store.cookieConsent.externalMediaCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
+                                <div :class="$store.cookieState.externalMediaCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
                             </div>
                         </div>
                         <p class="text-xs text-gray-300">
@@ -520,18 +503,14 @@
     </div>
 
     <!-- Cookie-Einstellungen-Button (sichtbar wenn Banner geschlossen) -->
-    <div x-show="!$store.cookieConsent.showBanner" class="fixed bottom-4 right-4 z-50">
-        <button @click="$store.cookieConsent.showBanner = true"
-                class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-full flex items-center shadow-lg"
-                aria-label="Cookie-Einstellungen öffnen"
-                role="button">
+    <div x-data="{}" x-show="!$store.cookieState.showBanner" class="fixed bottom-4 right-4 z-50">
+        <button @click="$store.cookieState.showBanner = true"
+                class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-full flex items-center shadow-lg">
             <i class="fas fa-cookie-bite mr-2" aria-hidden="true"></i>
             <span x-show="$root.lang === 'de'">Cookie-Einstellungen</span>
             <span x-show="$root.lang === 'ru'">Настройки файлов cookie</span>
         </button>
     </div>
-
-
     
     <!-- JavaScript-Dateien -->
     <script src="assets/js/cookieConsent.js"></script>
