@@ -9,6 +9,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
     <style>
         /* Accessibility styles */
         .accessibility-mode {
@@ -240,31 +241,42 @@
     </footer>
     
     <!-- Cookie-Banner -->
-    <div x-data="cookieConsent" x-show="showBanner" class="fixed bottom-0 inset-x-0 z-50 bg-gray-900 text-white p-4 shadow-lg" x-transition>
+    <div x-data="cookieConsent" x-show="showBanner" class="fixed bottom-0 inset-x-0 z-50 bg-gray-900 text-white p-4 shadow-lg" x-transition
+         role="dialog" aria-modal="true" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-description">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="mb-4 md:mb-0 md:mr-4">
-                    <h3 class="text-xl font-bold mb-2" x-text="lang === 'de' ? 'Cookie-Einstellungen' : 'Настройки файлов cookie'"></h3>
-                    <p class="text-sm" x-text="lang === 'de' ? 'Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern. Sie können entscheiden, welche Cookies Sie zulassen möchten.' : 'Этот веб-сайт использует файлы cookie для улучшения вашего опыта. Вы можете решить, какие файлы cookie разрешить.'"></p>
-                    <button @click="showDetails = !showDetails" class="text-sm text-blue-300 hover:underline mt-1" aria-expanded="false" x-bind:aria-expanded="showDetails">
+                    <h3 id="cookie-consent-title" class="text-xl font-bold mb-2" x-text="lang === 'de' ? 'Cookie-Einstellungen' : 'Настройки файлов cookie'"></h3>
+                    <p id="cookie-consent-description" class="text-sm" x-text="lang === 'de' ? 'Diese Website verwendet Cookies, um Ihre Erfahrung zu verbessern. Sie können entscheiden, welche Cookies Sie zulassen möchten.' : 'Этот веб-сайт использует файлы cookie для улучшения вашего опыта. Вы можете решить, какие файлы cookie разрешить.'"></p>
+                    <button @click="showDetails = !showDetails" 
+                            class="text-sm text-blue-300 hover:underline mt-1" 
+                            :aria-expanded="showDetails" 
+                            aria-controls="cookie-details-section"
+                            role="button">
                         <span x-text="lang === 'de' ? (showDetails ? 'Details ausblenden' : 'Details anzeigen') : (showDetails ? 'Скрыть детали' : 'Показать детали')"></span>
                     </button>
                 </div>
                 <div class="flex space-x-3">
-                    <button @click="rejectAll()" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded transition" aria-label="Alle Cookies ablehnen">
+                    <button @click="rejectAll()" class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded transition" 
+                            aria-label="Alle Cookies ablehnen" 
+                            role="button">
                         <span x-text="lang === 'de' ? 'Alle ablehnen' : 'Отклонить все'"></span>
                     </button>
-                    <button @click="acceptAll()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition" aria-label="Alle Cookies akzeptieren">
+                    <button @click="acceptAll()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition" 
+                            aria-label="Alle Cookies akzeptieren"
+                            role="button">
                         <span x-text="lang === 'de' ? 'Alle akzeptieren' : 'Принять все'"></span>
                     </button>
-                    <button @click="savePreferences(true, false)" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition" aria-label="Cookie-Auswahl speichern">
+                    <button @click="savePreferences(true, false)" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded transition" 
+                            aria-label="Cookie-Auswahl speichern"
+                            role="button">
                         <span x-text="lang === 'de' ? 'Auswahl speichern' : 'Сохранить выбор'"></span>
                     </button>
                 </div>
             </div>
             
             <!-- Cookie-Details -->
-            <div x-show="showDetails" class="mt-4" x-transition>
+            <div id="cookie-details-section" x-show="showDetails" class="mt-4" x-transition>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="bg-gray-800 p-3 rounded">
                         <div class="flex items-center justify-between mb-2">
@@ -286,11 +298,15 @@
                                 <span x-text="lang === 'de' ? 'Statistik-Cookies' : 'Статистические файлы cookie'"></span>
                             </label>
                             <div class="relative">
-                                <input type="checkbox" id="statistics-cookies" x-model="statisticsCookies" class="sr-only" aria-label="Statistik-Cookies">
+                                <input type="checkbox" id="statistics-cookies" x-model="statisticsCookies" class="sr-only" 
+                                       aria-checked="statisticsCookies" 
+                                       aria-labelledby="statistics-label"
+                                       role="switch">
                                 <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
                                 <div :class="statisticsCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
                             </div>
                         </div>
+                        <p id="statistics-label" class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies sammeln Informationen, wie Sie unsere Website nutzen.' : 'Эти файлы cookie собирают информацию о том, как вы используете наш веб-сайт.'"></p>
                         <p class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies sammeln Informationen, wie Sie unsere Website nutzen.' : 'Эти файлы cookie собирают информацию о том, как вы используете наш веб-сайт.'"></p>
                     </div>
                     
@@ -300,11 +316,15 @@
                                 <span x-text="lang === 'de' ? 'Marketing-Cookies' : 'Маркетинговые файлы cookie'"></span>
                             </label>
                             <div class="relative">
-                                <input type="checkbox" id="marketing-cookies" x-model="marketingCookies" class="sr-only" aria-label="Marketing-Cookies">
+                                <input type="checkbox" id="marketing-cookies" x-model="marketingCookies" class="sr-only"
+                                       aria-checked="marketingCookies"
+                                       aria-labelledby="marketing-label"
+                                       role="switch">
                                 <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
                                 <div :class="marketingCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
                             </div>
                         </div>
+                        <p id="marketing-label" class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies werden verwendet, um Werbung relevanter für Sie zu gestalten.' : 'Эти файлы cookie используются, чтобы сделать рекламу более актуальной для вас.'"></p>
                         <p class="text-xs text-gray-300" x-text="lang === 'de' ? 'Diese Cookies werden verwendet, um Werbung relevanter für Sie zu gestalten.' : 'Эти файлы cookie используются, чтобы сделать рекламу более актуальной для вас.'"></p>
                     </div>
                     
@@ -314,11 +334,15 @@
                                 <span x-text="lang === 'de' ? 'Externe Medien' : 'Внешние медиа'"></span>
                             </label>
                             <div class="relative">
-                                <input type="checkbox" id="external-media-cookies" x-model="externalMediaCookies" class="sr-only" aria-label="Externe Medien Cookies">
+                                <input type="checkbox" id="external-media-cookies" x-model="externalMediaCookies" class="sr-only"
+                                       aria-checked="externalMediaCookies"
+                                       aria-labelledby="external-media-label"
+                                       role="switch">
                                 <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
                                 <div :class="externalMediaCookies ? 'translate-x-6 bg-green-500' : 'bg-red-500'" class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
                             </div>
                         </div>
+                        <p id="external-media-label" class="text-xs text-gray-300" x-text="lang === 'de' ? 'Externe Medien (z.B. Videos) können Cookies setzen, wenn sie eingebettet werden.' : 'Внешние медиа (например, видео) могут устанавливать файлы cookie при их встраивании.'"></p>
                         <p class="text-xs text-gray-300" x-text="lang === 'de' ? 'Externe Medien (z.B. Videos) können Cookies setzen, wenn sie eingebettet werden.' : 'Внешние медиа (например, видео) могут устанавливать файлы cookie при их встраивании.'"></p>
                     </div>
                 </div>
@@ -333,7 +357,11 @@
     
     <!-- Cookie-Einstellungen-Button (sichtbar wenn Banner geschlossen) -->
     <div x-data="cookieConsent" x-show="!showBanner" class="fixed bottom-4 right-4 z-50">
-        <button @click="showBanner = true" class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-full flex items-center shadow-lg" aria-label="Cookie-Einstellungen öffnen">
+        <button @click="showBanner = true" 
+                class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-full flex items-center shadow-lg" 
+                aria-label="Cookie-Einstellungen öffnen"
+                aria-haspopup="dialog"
+                role="button">
             <i class="fas fa-cookie-bite mr-2" aria-hidden="true"></i>
             <span x-text="lang === 'de' ? 'Cookie-Einstellungen' : 'Настройки файлов cookie'"></span>
         </button>

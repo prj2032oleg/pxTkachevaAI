@@ -1,0 +1,36 @@
+/* Fokusindikatoren für Tastaturnavigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #2563eb;  /* Blauer Umriss */
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+  transition: outline-color 0.2s ease-in-out;
+}
+
+/* Spezifische Stile für dunkle Hintergründe */
+.bg-gray-800 a:focus-visible,
+.bg-gray-900 a:focus-visible,
+.bg-gray-800 button:focus-visible,
+.bg-gray-900 button:focus-visible,
+footer a:focus-visible,
+footer button:focus-visible {
+  outline-color: #93c5fd;  /* Hellerer Blauton für dunkle Hintergründe */
+}
+
+/* Stile für Checkboxen */
+input[type="checkbox"]:focus-visible + div {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+/* Verbesserte Sichtbarkeit für den Barrierefreiheits-Modus */
+.accessibility-mode a:focus-visible,
+.accessibility-mode button:focus-visible {
+  outline-width: 4px;
+  outline-color: #000000;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.3);
+}
