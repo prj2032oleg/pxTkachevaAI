@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title x-text="lang === 'de' ? 'Zahnärzte Tkacheva - Ihre Zahnärzte in Deutschland' : 'Стоматологи Ткачева - Ваши стоматологи в Германии'"></title>
+    <title x-text="lang === 'de' ? 'Zahnarztpraxis Tkacheva' : 'Стоматологические клиники Татьяны Ткачевой'"></title>
     <meta name="description" content="Professionelle Zahnbehandlung in Denzlingen, Hinterzarten und Freiburg. Zahnärztliche Versorgung in deutscher und russischer Sprache.">
-    <meta name="keywords" content="Zahnarzt, Denzlingen, Hinterzarten, Freiburg, Zahnbehandlung, Zahnmedizin, Ästhetische Zahnheilkunde, Prophylaxe, Zahnarztpraxis">
+    <meta name="keywords" content="Zahnarzt, Denzlingen, Hinterzarten, Freiburg, Zahnbehandlung, Zahnmedizin, Ästhetische Zahnheilkunde, Prophylaxe, Zahnarztpraxis, Zahnarztpraxis Tkacheva, Tkacheva, Zahnarzt Tkacheva, Dentist russian">
     <meta name="author" content="Zahnarztpraxis Tkacheva">
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Zahnärzte Tkacheva - Ihre Zahnärzte in Deutschland">
+    <meta property="og:title" content="Zahnarztpraxis Tkacheva">
     <meta property="og:description" content="Professionelle Zahnbehandlung in Denzlingen, Hinterzarten und Freiburg. Zahnärztliche Versorgung in deutscher und russischer Sprache.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://px-tkacheva.de">
@@ -78,9 +78,9 @@
 </head>
 <body class="bg-gray-50" :class="{ 'accessibility-mode': accessibilityMode }">
     <!-- Accessibility Toggle -->
-    <div class="fixed top-4 left-4 z-50">
+    <div class="fixed top-16 left-4 z-50">
         <button @click="accessibilityMode = !accessibilityMode" 
-                class="bg-yellow-500 text-black px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-yellow-600 transition-colors"
+                class="bg-yellow-500 text-black px-3 py-2 rounded-lg flex items-center space-x-2 hover:bg-yellow-600 transition-colors"
                 :aria-pressed="accessibilityMode">
             <i class="fas fa-universal-access"></i>
             <span x-text="accessibilityMode ? (lang === 'de' ? 'Standardansicht' : 'Обычный вид') : (lang === 'de' ? 'Barrierefreie Ansicht' : 'Версия для слабовидящих')"></span>
@@ -88,7 +88,7 @@
     </div>
 
     <!-- Language Switcher -->
-    <div class="fixed top-4 right-4 z-50">
+    <div class="fixed top-16 right-4 z-50">
         <button @click="lang = 'de'" 
                 :class="{ 'bg-blue-600 text-white': lang === 'de', 'bg-gray-200': lang !== 'de' }" 
                 class="px-4 py-2 rounded-l-lg"
@@ -102,15 +102,15 @@
     <!-- Navigation -->
     <nav class="bg-white shadow-lg fixed w-full z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-12">
+            <div class="flex justify-between h-20">
                 <div class="flex items-center">
                     <a href="#" class="flex items-center h-12">
-                        <img src="assets/images/logo.png" alt="Zahnarztpraxis Tkacheva Logo" class="h-9 max-h-full w-auto block">
+                        <img src="assets/images/logo.png" alt="Zahnarztpraxis Tkacheva Logo" class="h-15 max-h-full w-auto block">
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#about" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Über uns' : 'О нас'"></a>
-                    <a href="#clinics" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unsere Zahnpraxen' : 'Наши клиники'"></a>
+                    <a href="#clinics" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unsere Zahnarztpraxen' : 'Наши клиники'"></a>
                     <a href="#team" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unser Team' : 'Наша команда'"></a>
                     <a href="#services" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Unsere Leistungen' : 'Наши услуги'"></a>
                     <a href="#contact" class="text-gray-700 hover:text-blue-600" x-text="lang === 'de' ? 'Kontakt' : 'Контакты'"></a>
@@ -159,7 +159,7 @@
     <!-- Clinics Section -->
     <section id="clinics" class="py-16 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'de' ? 'Unsere Zahnpraxen' : 'Наши стоматологические клиники'"></h2>
+            <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'de' ? 'Unsere Zahnarztpraxen' : 'Наши стоматологические клиники'"></h2>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Clinic 1 -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden" x-data="{ showDetails: false }">
@@ -270,25 +270,25 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-12" x-text="lang === 'de' ? 'Unsere Leistungen' : 'Наши услуги'"></h2>
             <div class="grid md:grid-cols-4 gap-8">
-                <div class="text-center">
+                <div class="text-left">
                     <i class="fas fa-tooth text-4xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Allgemeine Zahnheilkunde' : 'Общая стоматология'"></h3>
-                    <p class="text-gray-600" x-text="lang === 'de' ? 'Umfassende zahnärztliche Versorgung für alle Altersgruppen' : 'Комплексное стоматологическое обслуживание для всех возрастов'"></p>
+                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Implantation' : 'Имплантация'"></h3>
+                    <p class="text-gray-600" x-text="lang === 'de' ? 'Wir bieten Sofortimplantation, Knochenaufbau, eine chirurgische Formung des Zahnfleisches und Zahnextraktion an.' : 'Мы предлагаем немедленную имплантацию, реконструкцию кости, хирургическую формировку десны и удаление зубов.'"></p>
                 </div>
-                <div class="text-center">
+                <div class="text-left">
+                    <i class="fas fa-tooth text-4xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Prothesen' : 'Протезы'"></h3>
+                    <p class="text-gray-600" x-text="lang === 'de' ? 'Unser Zahnersatz wird individuell und hochwertig für Sie von unserem Zahntechniker gestaltet. Wir legen großen Wert auf die Qualität weswegen unser Zahntechniker bei jeder Anprobe dabei ist.' : 'Наши зубные протезы изготавливаются индивидуально и с высоким качеством нашим зубным техником. Мы придаем большое значение качеству, поэтому наш зубной техник присутствует при каждой примерке.'"></p>
+                </div>
+                <div class="text-left">
                     <i class="fas fa-smile text-4xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Ästhetische Zahnheilkunde' : 'Эстетическая стоматология'"></h3>
-                    <p class="text-gray-600" x-text="lang === 'de' ? 'Verwandeln Sie Ihr Lächeln mit unseren kosmetischen Lösungen' : 'Преобразите свою улыбку с помощью наших косметических решений'"></p>
+                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Ästhetische Zahnheilkunde ' : 'Эстетическая стоматология'"></h3>
+                    <p class="text-gray-600" x-text="lang === 'de' ? 'Verwandeln Sie Ihr Lächeln mit unseren kosmetischen Lösungen wie der Zahnaufhellung. Wir sind mit der neusten Generation von CEREC ausgestattet was uns erlaubt, Ihnen mit nur einer Behandlungseinheit neuen Zahnersatz zu gestalten und einzusetzen.' : 'Преобразите свою улыбку с помощью наших косметических решений, таких как отбеливание зубов. Мы оснащены новейшим оборудованием CEREC, что позволяет нам изготовить и установить новые зубные протезы за один прием.'"></p>
                 </div>
-                <div class="text-center">
-                    <i class="fas fa-tooth text-4xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Diagnostik & CMD Diagnostik' : 'Диагностика и диагностика заболеваний височно-нижнечелюстного сустава'"></h3>
-                    <p class="text-gray-600" x-text="lang === 'de' ? 'Der Grundstein des Erfolges einer jeden Behandlung ist die Diagnose' : 'Залогом успеха в лечении любого заболевания является правильная диагностика'"></p>
-                </div>
-                <div class="text-center">
-                    <i class="fas fa-tooth text-4xl text-blue-600 mb-4"></i>
+                <div class="text-left">
+                    <i class="fas fa-smile text-4xl text-blue-600 mb-4"></i>
                     <h3 class="text-xl font-semibold mb-2" x-text="lang === 'de' ? 'Prophylaxe' : 'Профилактические процедуры'"></h3>
-                    <p class="text-gray-600" x-text="lang === 'de' ? 'Prophylaxe' : 'Профилактические процедуры'"></p>
+                    <p class="text-gray-600" x-text="lang === 'de' ? 'Unsere Prophylaxe wird mit EMS Prophylaxemaster durchgeführt.' : 'Наша профилактика проводится с помощью EMS Prophylaxemaster.'"></p>
                 </div>                
             </div>
         </div>

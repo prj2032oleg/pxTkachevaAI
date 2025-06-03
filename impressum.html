@@ -51,38 +51,35 @@
     </style>
 </head>
 <body class="bg-gray-50" :class="{ 'accessibility-mode': accessibilityMode }">
-    <!-- Accessibility Toggle -->
-    <div class="fixed top-4 left-4 z-50">
-        <button @click="accessibilityMode = !accessibilityMode" 
-                class="bg-yellow-500 text-black px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-yellow-600 transition-colors"
-                :aria-pressed="accessibilityMode"
-                aria-label="Barrierefreiheit umschalten">
-            <i class="fas fa-universal-access" aria-hidden="true"></i>
+<!-- Accessibility Toggle -->
+    <div class="fixed top-16 left-4 z-50">
+        <button @click="accessibilityMode = !accessibilityMode"
+                class="bg-yellow-500 text-black px-3 py-2 rounded-lg flex items-center space-x-2 hover:bg-yellow-600 transition-colors"
+                :aria-pressed="accessibilityMode">
+            <i class="fas fa-universal-access"></i>
             <span x-text="accessibilityMode ? (lang === 'de' ? 'Standardansicht' : 'Обычный вид') : (lang === 'de' ? 'Barrierefreie Ansicht' : 'Версия для слабовидящих')"></span>
         </button>
     </div>
 
     <!-- Language Switcher -->
-    <div class="fixed top-4 right-4 z-50">
-        <button @click="lang = 'de'" 
-                :class="{ 'bg-blue-600 text-white': lang === 'de', 'bg-gray-200': lang !== 'de' }" 
+    <div class="fixed top-16 right-4 z-50">
+        <button @click="lang = 'de'"
+                :class="{ 'bg-blue-600 text-white': lang === 'de', 'bg-gray-200': lang !== 'de' }"
                 class="px-4 py-2 rounded-l-lg"
-                :aria-pressed="lang === 'de'"
-                aria-label="Deutsch">DE</button>
-        <button @click="lang = 'ru'" 
-                :class="{ 'bg-blue-600 text-white': lang === 'ru', 'bg-gray-200': lang !== 'ru' }" 
+                :aria-pressed="lang === 'de'">DE</button>
+        <button @click="lang = 'ru'"
+                :class="{ 'bg-blue-600 text-white': lang === 'ru', 'bg-gray-200': lang !== 'ru' }"
                 class="px-4 py-2 rounded-r-lg"
-                :aria-pressed="lang === 'ru'"
-                aria-label="Russisch">RU</button>
+                :aria-pressed="lang === 'ru'">RU</button>
     </div>
 
     <!-- Navigation -->
     <nav class="bg-white shadow-lg fixed w-full z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-12">
+            <div class="flex justify-between h-20">
                 <div class="flex items-center">
-                    <a href="index.html" class="flex items-center h-12" aria-label="Zur Startseite">
-                        <img src="assets/images/logo.png" alt="Zahnarztpraxis Tkacheva Logo" class="h-9 max-h-full w-auto block">
+                    <a href="#" class="flex items-center h-12">
+                        <img src="assets/images/logo.png" alt="Zahnarztpraxis Tkacheva Logo" class="h-15 max-h-full w-auto block">
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
