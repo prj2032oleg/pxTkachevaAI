@@ -13,14 +13,14 @@ document.addEventListener('alpine:init', () => {
         cv: 'vita/vita_tkacheva.pdf' // если есть, иначе null
       },
       {
-        fullName: 'Dr. med. dent. Franziska Eisenmenger',
+        fullName: 'Dr. Franziska Eisenmenger',
         photo: 'team/DrFranziskaEisenmenger.png',
         position: 'Zahnärztin',
         clinic: 'Zahnarztpraxis Denzlingen',
         cv: 'vita/vita_eisenmenger.pdf' // если есть, иначе null
       },
       {
-        fullName: 'Dr. med. dent. Ute Klaffke',
+        fullName: 'Dr. Ute Klaffke',
         photo: 'team/DrUteKlaffke.png',
         position: 'Zahnärztin',
         clinic: 'Zahnarztpraxis Denzlingen',
@@ -29,15 +29,15 @@ document.addEventListener('alpine:init', () => {
       {
         fullName: 'Dr. Tobias Eisenmenger',
         photo: 'team/man.png',
-        position: 'Zahnärztin',
+        position: 'Zahnarzt',
         clinic: 'Zahnarztpraxis Denzlingen',
         cv: null // если есть, иначе null
       },
       {
-        fullName: 'Samanta Heuser',
-        photo: 'team/Samanta%20Heuser_1.png',
-        position: 'Prophylaxe, QM-Beauftragte',
-        clinic: 'Zahnarztpraxis Denzlingen',
+        fullName: 'Ninmar Malki',
+        photo: 'team/NinmarMalki.png',
+        position: 'Zahnarzt',
+        clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
         cv: null // если есть, иначе null
       },
       {
@@ -64,53 +64,67 @@ document.addEventListener('alpine:init', () => {
       {
         fullName: 'Hamda Abdirahman',
         photo: 'team/HamdaAbdirahman.png',
-        position: 'Auszubildende',
+        position: 'Zahnmedizinische Fachangestellte',
         clinic: 'Zahnarztpraxis Tkacheva Freiburg',
         cv: null // если есть, иначе null
-      },     
-      {
-        fullName: 'Christina Schmieder',
-        photo: 'team/ChristinaSchmieder.png',
-        position: 'Auszubildende',
-        clinic: 'Zahnarztpraxis Tkacheva Freiburg',
-        cv: null // если есть, иначе null
-      },   
-      {
-        fullName: 'Ninmar Malki',
-        photo: 'team/NinmarMalki.png',
-        position: 'Vorbereitungsassistent',
-        clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
-        cv: null // если есть, иначе null
-      },  
-      {
-        fullName: 'Sandra Schillinger',
-        photo: 'team/SandraSchillinger.png',
-        position: 'Praxismanagerin, Prophylaxe',
-        clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
-        cv: null // если есть, иначе null
-      },       
+      },
       {
         fullName: 'Renate Weidinger',
         photo: 'team/RenateWeidinger.png',
         position: 'Verwaltung',
         clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
         cv: null // если есть, иначе null
-      },   
+      },
       {
-        fullName: 'Maria Kreiler',
-        photo: 'team/MariaKreiler.png',
-        position: 'Stuhlassistenz',
+            fullName: 'Maria Kreiler',
+            photo: 'team/MariaKreiler.png',
+            position: 'Zahnmedizinische Fachangestellte',
+            clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
+            cv: null // если есть, иначе null
+      },
+      {
+        fullName: 'Gulstan Rasho',
+        photo: 'team/man.png',
+        position: 'Zahnmedizinische Fachangestellte',
         clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
         cv: null // если есть, иначе null
-      },    
+      },
       {
-        fullName: 'Sofia Somai',
+        fullName: 'Carolin Hämmerle',
+        photo: 'team/SofiaSomai.png',
+        position: 'Zahnmedizinische Fachangestellte',
+        clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
+        cv: null // если есть, иначе null
+      },
+      {
+        fullName: 'Sofia Samai',
         photo: 'team/SofiaSomai.png',
         position: 'Auszubildende',
         clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
         cv: null // если есть, иначе null
-      },                                                 
-      // ... остальные сотрудники
+      },
+      {
+            fullName: 'Wisam Raad Mahmood',
+            photo: 'team/man.png',
+            position: 'Auszubildender',
+            clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
+            cv: null // если есть, иначе null
+      },
+      {
+            fullName: 'Katharina Fischer',
+            photo: 'team/SofiaSomai.png',
+            position: 'Auszubildende',
+            clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
+            cv: null // если есть, иначе null
+      },
+      {
+            fullName: 'Olha Chubakova',
+            photo: 'team/SofiaSomai.png',
+            position: 'Auszubildende',
+            clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
+            cv: null // если есть, иначе null
+      },
+        // ... остальные сотрудники
     ],
     openProfile(member) {
       this.selectedMember = member;
