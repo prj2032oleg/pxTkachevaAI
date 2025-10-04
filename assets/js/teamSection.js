@@ -77,7 +77,7 @@ document.addEventListener('alpine:init', () => {
       },
       {
             fullName: 'Maria Kreiler',
-            photo: 'team/MariaKreiler.png',
+            photo: 'team/mariaKreiler.png',
             position: 'Zahnmedizinische Fachangestellte',
             clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
             cv: null // если есть, иначе null
@@ -91,14 +91,14 @@ document.addEventListener('alpine:init', () => {
       },
       {
         fullName: 'Carolin Hämmerle',
-        photo: 'team/SofiaSomai.png',
+        photo: 'team/carolinHämmerle.png',
         position: 'Zahnmedizinische Fachangestellte',
         clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
         cv: null // если есть, иначе null
       },
       {
         fullName: 'Sofia Samai',
-        photo: 'team/SofiaSomai.png',
+        photo: 'team/sofiaSamai.png',
         position: 'Auszubildende',
         clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
         cv: null // если есть, иначе null
