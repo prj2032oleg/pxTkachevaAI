@@ -84,7 +84,7 @@ document.addEventListener('alpine:init', () => {
       },
       {
         fullName: 'Gulstan Rasho',
-        photo: 'team/man.png',
+        photo: 'team/SofiaSomai.png',
         position: 'Zahnmedizinische Fachangestellte',
         clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
         cv: null // если есть, иначе null
