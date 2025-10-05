@@ -69,6 +69,13 @@ document.addEventListener('alpine:init', () => {
         cv: null // если есть, иначе null
       },
       {
+            fullName: 'Sandra Schillinger',
+            photo: 'team/SandraSchillinger.png',
+            position: 'Praxismanagerin, Prophylaxe',
+            clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
+            cv: null // если есть, иначе null
+      },
+      {
         fullName: 'Renate Weidinger',
         photo: 'team/RenateWeidinger.png',
         position: 'Verwaltung',
