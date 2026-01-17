@@ -60,7 +60,14 @@ document.addEventListener('alpine:init', () => {
         position: 'Verwaltung, Prophylaxe, Stuhlassistenz',
         clinic: 'Zahnarztpraxis Tkacheva Freiburg',
         cv: null // если есть, иначе null
-      },    
+      },
+      {
+        fullName: 'Manuela Stettner',
+        photo: 'team/ManuelaStettner.png',
+        position: 'Verwaltung',
+        clinic: 'Zahnarztpraxis Tkacheva Freiburg',
+        cv: null // если есть, иначе null
+      },
       {
         fullName: 'Hamda Abdirahman',
         photo: 'team/HamdaAbdirahman.png',
