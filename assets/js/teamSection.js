@@ -28,7 +28,7 @@ document.addEventListener('alpine:init', () => {
       },
       {
         fullName: 'Dr. Tobias Eisenmenger',
-        photo: 'team/man.png',
+        photo: 'team/TobiasEisenmenger.png',
         position: 'Zahnarzt',
         clinic: 'Zahnarztpraxis Denzlingen',
         cv: null // если есть, иначе null
@@ -56,7 +56,7 @@ document.addEventListener('alpine:init', () => {
       }, 
       {
         fullName: 'Ramona Lais',
-        photo: 'team/RamonaLais.png',
+        photo: 'team/RamonaLais2.png',
         position: 'Verwaltung, Prophylaxe, Stuhlassistenz',
         clinic: 'Zahnarztpraxis Tkacheva Freiburg',
         cv: null // если есть, иначе null
@@ -65,13 +65,6 @@ document.addEventListener('alpine:init', () => {
         fullName: 'Manuela Stettner',
         photo: 'team/ManuelaStettner.png',
         position: 'Verwaltung',
-        clinic: 'Zahnarztpraxis Tkacheva Freiburg',
-        cv: null // если есть, иначе null
-      },
-      {
-        fullName: 'Hamda Abdirahman',
-        photo: 'team/HamdaAbdirahman.png',
-        position: 'Zahnmedizinische Fachangestellte',
         clinic: 'Zahnarztpraxis Tkacheva Freiburg',
         cv: null // если есть, иначе null
       },
@@ -133,7 +126,7 @@ document.addEventListener('alpine:init', () => {
       },
       {
             fullName: 'Olha Chubakova',
-            photo: 'team/SofiaSomai.png',
+            photo: 'team/OlhaChubakova.png',
             position: 'Auszubildende',
             clinic: 'Zahnarztpraxis Tkacheva Hinterzarten',
             cv: null // если есть, иначе null
